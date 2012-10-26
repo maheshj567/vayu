@@ -82,23 +82,6 @@
 		</div>
 		<div id="cards"></div>
 
-		<!-- Templates for Backbone -->
-
-		<script id="board-template" type="text/template">
-			<a href="#">{{ name }}</a>
-		</script>
-
-		<script id="card-template" type="text/template">
-			<div class="card-title">{{ name }}</div>
-			<ul class="dodo-list"></ul>
-		</script>
-
-		<script id="dodo-template" type="text/template">
-			<a href="#">{{ title }}</a>
-		</script>
-
-		<!-- END Templates for Backbone -->
-
 		<!-- Included JS Files (Uncompressed) -->
 		<!--
 
@@ -139,7 +122,9 @@
 		<script src="javascripts/backbone.js"></script>
 		<script src="javascripts/popbox.js"></script>
 		<script src="javascripts/data.js"></script>
-		<script src="javascripts/dodo.js"></script>
-		<script src="javascripts/app.js"></script>
+		<!-- <script src="javascripts/dodo.js"></script> -->
+		<!-- <script src="javascripts/foundation.app.js"></script> -->
+		
+		<script data-main="javascripts/main.js" src="javascripts/require.js"></script>
 	</body>
 </html>

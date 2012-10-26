@@ -5,6 +5,11 @@ This is a simple to-do's application that I'm working on to experiment with Back
 
 ## Progress
 
+### v0.1
+
+* Cards are added to the list at the top (rather) than at the bottom
+* Used require.js to create a modular application structure - separate views and models
+
 ### v0
 
 * Add boards
