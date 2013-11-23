@@ -3,9 +3,9 @@
  */
 
 var boards = [
-	{id: "1", name: "Office"},
-	{id: "2", name: "Home"},
-	{id: "3", name: "Getoo"}
+	{id: "1", name: "Office", cards : ["1","2"]},
+	{id: "2", name: "Home", cards : ["3","4"]},
+	{id: "3", name: "Getoo", cards : []}
 ];
 
 var cards = [

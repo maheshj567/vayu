@@ -1,4 +1,4 @@
-define(["models/dodo"], function(DodoItem)
+define(["models/dodo-item"], function(DodoItem)
 {
 	//dodo collection
 	var Dodos = Backbone.Collection.extend({
@@ -6,10 +6,7 @@ define(["models/dodo"], function(DodoItem)
 		
 		createDodo : function(dodotitle)
 		{
-			var date = new Date();
-			var did = date.getYear() + "" + date.getMonth() + "" + date.getDate() + "" + date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
 			var dodo = new DodoItem({
-				id : did,
 				title : dodotitle
 			});
 			

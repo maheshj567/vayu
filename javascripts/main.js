@@ -4,9 +4,9 @@ require.config({
   }
 });
 
-require(['dodo-boards'], function(dodo)
+require(['dodo-boards-facade'], function(facade)
 {
 	$(document).ready(function(){
-		dodoBoards.initialize();
+		appFacade.initialize();
 	});
 });

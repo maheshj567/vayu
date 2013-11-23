@@ -1,8 +1,14 @@
-define(["text!templates/board-template.html"], function(BoardTemplate)
+define(["text!templates/board-template.html",
+		"controllers/board-item-controller"], function(BoardTemplate, BoardItemController)
 {
 	var BoardItemView = Backbone.View.extend({
 		tagName : "li",
 		template : _.template(BoardTemplate),
+		
+		initialize : function()
+		{
+			// this.constructor.__super__.initialize.apply(this, arguments);
+		},
 
 		events : {
 			"CSSClassChanged" : "updateCurrentBoard"
