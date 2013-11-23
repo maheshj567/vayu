@@ -1,0 +1,24 @@
+{
+  "name": "Do-do boards",
+  "version": "0.2.0",
+  "author": "Mahesh Kumar J",
+  "description": "A app to get things done!",
+  "contributors": [
+    {
+      "name": "Mahesh Kumar J"
+    }
+  ],
+  "main": "./server.js",
+  "keywords": [
+    "todo"
+  ],
+  "dependencies": {
+    "jade": "*",
+    "express": "~3.1.0"
+  },
+  "noAnalyze": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6.14"
+  }
+}

@@ -1,0 +1,101 @@
+/*#cards
+{
+	display: inline-block;
+	position: absolute;
+	padding: 140px 0px 0px 400px;
+	width: 97%;
+	left: 0px;
+	
+	-webkit-column-count: 3;
+	-webkit-column-gap: 10px;
+	-webkit-column-fill: auto;
+	-moz-column-count: 3;
+	-moz-column-gap: 10px;
+	-moz-column-fill: auto;
+	column-count: 3;
+	column-gap: 15px;
+	column-fill: auto;
+}
+
+#cards div
+{
+	display: inline-block;
+	width: 100%;
+	min-width: 300px;
+	background: #1E728C;
+	padding: 20px;
+	
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+}*/
+
+.c1
+{
+/*	height: 50px;*/
+}
+
+.c2
+{
+	height: 70px;
+}
+
+.c3
+{
+	height: 90px;
+}
+
+.c4
+{
+	height: 100px;
+}
+
+.c5
+{
+	height: 120px;
+}
+
+.c6
+{
+	height: 90px;
+}
+
+.c7
+{
+	height: 80px;
+}
+
+.c8
+{
+	height: 50px;
+}
+
+.c9
+{
+	height: 900px;
+}
+
+.c10
+{
+	height: 110px;
+}
+
+.c11
+{
+	height: 140px;
+}
+
+.c12
+{
+	height: 80px;
+}
+
+.c13
+{
+	height: 70px;
+}
+
+.c14
+{
+	height: 50px;
+}
