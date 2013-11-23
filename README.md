@@ -7,7 +7,7 @@ This is a simple to-do's application that I'm working on to experiment with Back
 
 ### v0.2
 
-* using JSON.stringify to encode data instead of manuall building the string - fixes bugs related to JSON encoding````
+* using JSON.stringify to encode data instead of manuall building the string - fixes bugs related to JSON encoding
 
 ### v0.1
 
