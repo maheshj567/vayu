@@ -4,5 +4,6 @@
 .svn
 _svn
 mockup/
+.project
 node_modules/
 iisnode/
