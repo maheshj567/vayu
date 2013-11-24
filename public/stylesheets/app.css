@@ -36,8 +36,8 @@ input[type="text"]
 	padding: 8px 20px 8px;
 }
 
-[contenteditable]:hover, [contenteditable]:focus {
-  background: #FFFFD3;
+[contenteditable] {
+	width: 100% !important;
 }
 
 #sidebar
@@ -274,22 +274,32 @@ input[type="text"]
 	background: none;
 }
 
-.dodo-list a
-{
-	font-family: Lato, sans-serif;
-	font-size: 24px;
-	color: #646464;
-	display: block;
-	padding: 10px 10px 0px 10px;
-	min-height: 50px;
-}
-
 .dodo-list a:hover
 {
 	color: #333333;
 }
 
-.done-dodo a
+.dodo
+{
+    position: relative;
+}
+
+.dodo-label[contenteditable]:hover, .dodo-label[contenteditable]:focus {
+    background: #FFFFD3;
+    color: #333333;
+}
+
+.dodo-label
+{
+    width: 90%;
+    font-family: Lato, sans-serif;
+	font-size: 24px;
+	color: #646464;
+	display: block;
+	padding: 10px 0px 0px 10px;
+}
+
+.done-dodo .dodo-label
 {
 	background-image: url('../images/tick.png');
 	background-repeat: no-repeat;
@@ -303,11 +313,23 @@ input[type="text"]
 	-o-text-overflow: ellipsis;
 }
 
+.dodo-more-btn
+{
+    background-image: url('../images/more_btn.png');
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+}
+
 .new-dodo
 {
 	text-align: center;
 	font-family: 'Lato', sans-serif;
-	font-weight: 300;
+	font-weight: 300 !important;
 }
 
 /* iPads (portrait and landscape) ----------- */

@@ -6,10 +6,12 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
 		template : _.template(DodoTemplate),
 
 		events : {
-			"click" : "toggleDone",
-			"keydown a" : "handleNewDodo",
-			"click a" : "handleAFocusIn",
-			"focusout a" : "handleAFocusOut"
+            "mouseover" : "handleMouseOver",
+            "mouseout" : "handleMouseOut",
+			"keydown .dodo-label" : "handleNewDodo",
+			"click .dodo-label" : "handleAFocusIn",
+			"focusout a" : "handleAFocusOut",
+            "click .dodo-more-btn" : "handleMore"
 		},
 
 		initialize : function() {
@@ -20,38 +22,51 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
 			this.$el.html(this.template(this.model.toJSON()));
 			$(this.$el).attr("id", "dodo_" + this.model.get("id"));
 
-			if (this.model.get("done") == true) {
+			if (this.model.get("done") === true) {
 				$(this.$el).addClass("done-dodo");
 			}
 
 			return this;
 		},
+        
+        handleMouseOver : function(e) {
+            if(!$(this.$el).hasClass("new-dodo"))
+            {
+                // $(this.$el).find(".dodo-more-btn").show();
+            }
+        },
+        
+        handleMouseOut : function(e) {
+            $(this.$el).find(".dodo-more-btn").hide();
+        },
 
-		toggleDone : function(e) {
-			if (!$(this.$el).hasClass("new-dodo")) {
-				$(this.$el).toggleClass("done-dodo");
-				this.model.set("done", !this.model.get("done"));
-			}
+		handleAFocusIn : function(e) {
+			//TODO clean this up with a static const declaration of the "New Do-do" string
+			if ($(this.$el).hasClass("new-dodo")) {
+                if(e.currentTarget.innerHTML === "&lt;!-- New Do-do --&gt;")
+                {
+                    e.currentTarget.innerHTML = "";
+                    $(e.currentTarget).focus();
+                }
+			}else{
+                $(this.$el).toggleClass("done-dodo");
+                this.model.set("done", !this.model.get("done"));
+            }
 			return false;
 		},
 
-		handleAFocusIn : function(e) {
-
-			//TODO clean this up with a static const declaration of the "New Do-do" string
-			if (e.currentTarget.innerHTML == "&lt;!-- New Do-do --&gt;") {
-				e.currentTarget.innerHTML = "";
-				$(e.currentTarget).focus();
-			}
-		},
-
 		handleAFocusOut : function(e) {
-			if (e.currentTarget.innerHTML == "") {
+			if (e.currentTarget.innerHTML === "") {
 				e.currentTarget.innerHTML = "&lt;!-- New Do-do --&gt;";
 			}
 		},
+        
+        handleMore : function(e) {
+            return false;
+        },
 
 		handleNewDodo : function(e) {
-			var esc = event.which == 27;
+            var esc = event.which == 27;
 			var ent = event.which == 13;
 			if (esc) {
 				// restore state
@@ -60,8 +75,12 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
 			} else if (ent) {
 				var title = $(e.currentTarget).html();
 				this.model.set("title", title);
-				document.execCommand('undo');
+                
+                console.log(this.model.get("title"));
+				// document.execCommand('undo');
 				e.currentTarget.blur();
+                
+                //required, if not, browser changes content to wrap it in a div
 				event.preventDefault();
 			}
 		}

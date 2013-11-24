@@ -1,51 +1,72 @@
 define(["text!templates/board-template.html",
-		"controllers/board-item-controller"], function(BoardTemplate, BoardItemController)
-{
-	var BoardItemView = Backbone.View.extend({
-		tagName : "li",
-		template : _.template(BoardTemplate),
-		
-		initialize : function()
-		{
-			// this.constructor.__super__.initialize.apply(this, arguments);
-		},
+  "controllers/board-item-controller"], function (BoardTemplate, BoardItemController) {
+    var BoardItemView = Backbone.View.extend({
+        tagName: "li",
+        template: _.template(BoardTemplate),
 
-		events : {
-			"CSSClassChanged" : "updateCurrentBoard"
-		},
+        events: {
+            "keydown a": "handleBoardNameEdit",
+            "CSSClassChanged": "updateCurrentBoard"
+        },
 
-		updateCurrentBoard : function() {
-			if ($(this.$el).hasClass("selected")) {
-				window.dodo_app.set("selectedboard", this.model);
-				$("#selected-board").html(this.model.get("name"));
+        initialize: function () {
+            // this.constructor.__super__.initialize.apply(this, arguments);
+        },
 
-				var cardids = this.model.get("cards");
-				var tempcards = [];
-				var item;
-				_.each(cardids, function(id) {
-					item = _.find(window.all_cards.models, function(item) {
-						return item.get("id") == id;
-					});
-					if (item) {
-						tempcards.push(item);
-					}
-					item = null;
-				});
-				window.cards_coll.reset(tempcards);
-			}
-		},
+        updateCurrentBoard: function () {
+            if ($(this.$el).hasClass("selected")) {
+                window.dodo_app.set("selectedboard", this.model);
+                $("#selected-board").html(this.model.get("name"));
 
-		switchTo : function(s) {
-			$(this.$el).trigger("click");
-		},
+                var cardids = this.model.get("cards");
+                var tempcards = [];
+                var item;
+                _.each(cardids, function (id) {
+                    item = _.find(window.all_cards.models, function (item) {
+                        return item.get("id") == id;
+                    });
+                    if (item) {
+                        tempcards.push(item);
+                    }
+                    item = null;
+                });
+                window.cards_coll.reset(tempcards);
+            }
+        },
 
-		render : function() {
-			this.$el.html(this.template(this.model.toJSON()));
-			$(this.$el).attr("id", "board_" + this.model.get("id"));
+        switchTo: function (s) {
+            $(this.$el).trigger("click");
+        },
 
-			return this;
-		}
-	});
-	
-	return BoardItemView;
+        render: function () {
+            this.$el.html(this.template(this.model.toJSON()));
+            $(this.$el).attr("id", "board_" + this.model.get("id"));
+
+            return this;
+        },
+
+        handleBoardNameEdit: function (e) {
+            var esc = event.which == 27;
+            var ent = event.which == 13;
+            if (esc) {
+                // restore state
+                document.execCommand('undo');
+            } else if (ent) {
+                var name = $(e.currentTarget).html();
+                if (name !== '') {
+                    this.model.set("name", name);
+                    $("#selected-board").html(name);
+                } else {
+                    document.execCommand('undo');
+                }
+            }
+
+            if (esc || ent) {
+                e.currentTarget.blur();
+                event.preventDefault();
+            }
+        }
+    });
+
+    return BoardItemView;
 });

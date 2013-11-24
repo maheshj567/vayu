@@ -6,7 +6,10 @@ define(["models/dodo-item"], function(DodoItem)
 		
 		createDodo : function(dodotitle)
 		{
+			var date = new Date();
+			var did = date.getYear() + "" + date.getMonth() + "" + date.getDate() + "" + date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
 			var dodo = new DodoItem({
+                id : did,
 				title : dodotitle
 			});
 			

@@ -43,16 +43,17 @@ define(["views/dodo-item-view"], function(DodoItemView)
 				root.createDodo(this.get("title"));
 			});
 			var view = this.renderDodoItem(newdodo);
-			$(view.$el).addClass("new-dodo");
-			$(view.$el).find("a").attr("contenteditable", true);
+            $(view.$el).addClass("new-dodo");
+            $(view.$el).addClass("gen_" + Math.round(Math.random()*10000));
+			$(view.$el).find(".dodo-label").attr("contenteditable", true);
 
 			if (focus) {
-				$(view.$el).find("a").click();
+				$(view.$el).find(".dodo-label").click();
 			}
 		},
 
 		removeNewDodoHolder : function() {
-			$(this.$el).find("#dodo_new").remove();
+			$(this.$el).find(".new-dodo").remove();
 		},
 
 		createDodo : function(dodotitle) {

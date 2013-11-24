@@ -13,17 +13,18 @@ define(["dodo-prereqs",
 
 		getBoards : function() {
 			var dodo_boards = this.getBoardsFromLocal();
-			if (!dodo_boards) {
+            //FIXME: had to do this check because localStorage.removeItem is setting the value as undefined!
+			if (dodo_boards === "undefined" || !dodo_boards) {
 				dodo_boards = new Boards();
 			} else {
-				dodo_boards = new Boards(eval(dodo_boards));
+				dodo_boards = new Boards(JSON.parse(dodo_boards));
 			}
 			return dodo_boards;
 		},
 
 		getBoardsFromLocal : function() {
 			var dodo_boards = localStorage.getItem("dodo_boards");
-			if (dodo_boards) {
+            if (dodo_boards) {
 				return dodo_boards;
 			}
 			return null;
@@ -38,36 +39,18 @@ define(["dodo-prereqs",
 		},
 
 		encodeBoardsForStorage : function() {
-			if (window.boards_coll == null) {
+			if (window.boards_coll === null) {
 				return;
 			}
 			return JSON.stringify(window.boards_coll.models);
-			// var boardsstr = "[";
-			// _.each(window.boards_coll.models, function(item) {
-				// boardsstr += '{"id":"' + item.get("id") + '","name":"' + item.get("name") + '","cards":[';
-				// var carddis = item.get("cards");
-				// _.each(carddis, function(id) {
-					// boardsstr += '"' + id + '",';
-				// });
-				// if (carddis.length != 0) {
-					// boardsstr = boardsstr.substring(0, boardsstr.length - 1);
-				// }
-				// boardsstr += "]},"
-			// });
-			// if (window.boards_coll.length != 0) {
-				// boardsstr = boardsstr.substring(0, boardsstr.length - 1);
-			// }
-			// boardsstr += "]";
-			// console.log(boardsstr);
-			// return boardsstr;
 		},
 
 		getCards : function() {
 			var dodo_cards = this.getCardsFromLocal();
-			if (!dodo_cards) {
+			if (dodo_cards === "undefined" || !dodo_cards) {
 				dodo_cards = new Cards();
 			} else {
-				dodo_cards = new Cards(eval(dodo_cards));
+				dodo_cards = new Cards(JSON.parse(dodo_cards));
 			}
 			return dodo_cards;
 		},
@@ -89,35 +72,18 @@ define(["dodo-prereqs",
 		},
 
 		encodeCardsForStorage : function() {
-			if (window.all_cards == null) {
+			if (window.all_cards === null) {
 				return;
 			}
 			return JSON.stringify(window.all_cards.models);
-			// var cardsstr = "[";
-			// _.each(window.all_cards.models, function(item) {
-				// cardsstr += '{"id":"' + item.get("id") + '","name":"' + item.get("name") + '","dodos":[';
-				// var dodoids = item.get("dodos");
-				// _.each(dodoids, function(id) {
-					// cardsstr += '"' + id + '",';
-				// });
-				// if (dodoids.length != 0) {
-					// cardsstr = cardsstr.substring(0, cardsstr.length - 1);
-				// }
-				// cardsstr += "]},"
-			// });
-			// if (window.all_cards.length != 0) {
-				// cardsstr = cardsstr.substring(0, cardsstr.length - 1);
-			// }
-			// cardsstr += "]";
-			// return cardsstr;
 		},
 
 		getDodos : function() {
 			var dodo_dodos = this.getDodosFromLocal();
-			if (!dodo_dodos) {
+			if (dodo_dodos === "undefined" || !dodo_dodos) {
 				dodo_dodos = new Dodos();
 			} else {
-				dodo_dodos = new Dodos(eval(dodo_dodos));
+				dodo_dodos = new Dodos(JSON.parse(dodo_dodos));
 			}
 			return dodo_dodos;
 		},
@@ -139,19 +105,10 @@ define(["dodo-prereqs",
 		},
 
 		encodeDodosForStorage : function() {
-			if (window.all_dodos == null) {
+			if (window.all_dodos === null) {
 				return;
 			}
 			return JSON.stringify(window.all_dodos.models);
-			// var dodosstr = "[";
-			// _.each(window.all_dodos.models, function(item) {
-				// dodosstr += '{"id":"' + item.get("id") + '","title":"' + item.get("title") + '","done":' + item.get("done") + '},';
-			// });
-			// if (all_dodos.length != 0) {
-				// dodosstr = dodosstr.substring(0, dodosstr.length - 1);
-			// }
-			// dodosstr += "]";
-			// return dodosstr;
 		},
 
 		saveAll : function() {
@@ -169,7 +126,7 @@ define(["dodo-prereqs",
 			window.all_cards = null;
 			window.all_dodos = null;
 		}
-	}
+	};
 
 	var initialize = function() {
 		$("#selected-board").click(function() {
@@ -207,22 +164,15 @@ define(["dodo-prereqs",
 		card_form_view = new NewCardFormView();
 		board_form_view = new NewBoardFormView();
 		boards_view = new BoardsView();
-	}
+	};
 
 	var refreshDimensions = function() {
-		// $("#sidebar").css('height', 10);
-		// if ($(window).height() > $(document).height()) {
-		// $("#sidebar").css('height', $(window).height());
-		// } else {
-		// $("#sidebar").css('height', $(document).height());
-		// }
 		$("#right-toolbar").css('width', 10);
 		$("#right-toolbar").css('width', $(document).width() - 452);
-	}
+	};
 	
 	window.appFacade = {
 		initialize : initialize,
 		refreshDimensions : refreshDimensions
-	} 
-
+	};
 });

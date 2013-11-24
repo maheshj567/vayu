@@ -7,7 +7,8 @@ define([],function()
 		var result = originalAddClassMethod.apply(this, arguments);
 		$(this).trigger("CSSClassChanged", arguments[0]);
 		return result;
-	}
+	};
+    
 	//change templating characters for underscore
 	_.templateSettings = {
 		interpolate : /\{\{(.+?)\}\}/g

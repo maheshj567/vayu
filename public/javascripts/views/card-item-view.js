@@ -6,6 +6,10 @@ define(["collections/dodos",
 		tagName : "div",
 		className : "card",
 		template : _.template(CardTemplate),
+        
+        events : {
+			"keydown .card-title" : "handleCardNameEdit"
+		},
 
 		initialize : function() {
 			this.dodos_coll = new Dodos();
@@ -53,6 +57,29 @@ define(["collections/dodos",
 			var dodos = this.model.get("dodos");
 			dodos.push(item.get("id"));
 			this.model.set("dodos", dodos);
+		},
+        
+        handleCardNameEdit : function(e) {
+            var esc = event.which == 27;
+			var ent = event.which == 13;
+			if (esc) {
+				// restore state
+				document.execCommand('undo');
+			} else if (ent) {
+				var name = $(e.currentTarget).html();
+                if(name !== '')
+                {
+                    this.model.set("name", name);
+                }else{
+                    document.execCommand('undo');
+                }
+			}
+            
+            if(esc || ent)
+            {
+                e.currentTarget.blur();
+                event.preventDefault();
+            }
 		}
 	});
 	
