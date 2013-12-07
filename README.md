@@ -8,6 +8,7 @@ This is a simple to-do's application that I'm working on to experiment with Back
 ### v0.3
 
 * Changed name and hosting
+* Changed logo
 
 ### v0.2
 
