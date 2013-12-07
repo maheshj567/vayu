@@ -1,9 +1,13 @@
-# Do-do's
+# Vayu
 This is a simple to-do's application that I'm working on to experiment with Backbone.js and HTML5 LocalStorage
 
-[See it in action](http://maheshj.com:48389)
+[See it in action](http://vayu.io:48389)
 
 ## Progress
+
+### v0.3
+
+* Changed name and hosting
 
 ### v0.2
 
