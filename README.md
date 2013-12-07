@@ -28,3 +28,6 @@ This is a simple to-do's application that I'm working on to experiment with Back
 * Reset everything
 * Store data in LocalStorage
 * Finished on 07 Oct, '12
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/maheshj567/do-dos/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
