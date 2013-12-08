@@ -25,7 +25,7 @@ This is a simple to-do's application that I'm working on to experiment with Back
 
 * Add boards
 * Add cards
-* Add do-do's
+* Add todo's
 * Reset everything
 * Store data in LocalStorage
 * Finished on 07 Oct, '12
