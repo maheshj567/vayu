@@ -26,6 +26,10 @@ Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/mah
 1. Database technology
 3. If real time (websockets) is required
 
+## License
+
+Apache License, Version 2.0
+
 ## Progress
 
 ### v0.3
