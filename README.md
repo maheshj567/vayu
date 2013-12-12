@@ -1,7 +1,19 @@
 # Vayu
-This is a simple to-do's application that I'm working on to experiment with Backbone.js and HTML5 LocalStorage
 
-[See it in action](http://vayu.io)
+It started off a project to help myself understand Backbone.js. Now I'm working on making it into a full featured app. The roadmap is a little fuzzy right now. I'm just adding whatever features that are on my mind.
+
+Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/maheshj567).
+
+[Give it a shot](http://vayu.io)
+
+## Current feature set
+
+1. Create boards
+2. Edit board names
+3. Create cards
+4. Edit cards
+5. Create/finish todo's
+6. Stores all data in your browser's local storage. So it won't be deleted even when you refresh the web page
 
 ## Progress
 
