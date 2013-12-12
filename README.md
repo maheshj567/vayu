@@ -15,6 +15,17 @@ Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/mah
 5. Create/finish todo's
 6. Stores all data in your browser's local storage. So it won't be deleted even when you refresh the web page
 
+## Technical details
+
+1. **HTML5** localstorage APIs
+2. **Backbone.js** for app logic
+3. **Zurb Foundation** framework for UI
+4. **Express (Node.js)** added as server side framework (using just to serve static assets right now)
+
+### Things to figure out
+1. Database technology
+3. If real time (websockets) is required
+
 ## Progress
 
 ### v0.3
