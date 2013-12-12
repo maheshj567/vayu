@@ -4,7 +4,7 @@ It started off a project to help myself understand Backbone.js. Now I'm working 
 
 Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/maheshj567).
 
-[Give it a shot](http://vayu.io)
+[Try out the app](http://vayu.io)
 
 ## Current feature set
 
