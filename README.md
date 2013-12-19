@@ -37,6 +37,7 @@ Apache License, Version 2.0
 * Changed name and hosting
 * Changed logo
 * added a lot of details to README
+* Finished on 12 Dec, '13
 
 ### v0.2
 
