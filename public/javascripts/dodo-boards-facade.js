@@ -144,8 +144,12 @@ define(["dodo-prereqs",
 		});
 
 		$('#reset-btn').click(function() {
-			storageManager.clearAll();
-			window.location.reload();
+            var res = confirm("This will all your data. Are you sure?");
+            if (res === true)
+            {
+                storageManager.clearAll();
+                window.location.reload();
+            }
 			return false;
 		});
 
