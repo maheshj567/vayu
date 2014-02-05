@@ -17,7 +17,7 @@
     "express": "~3.4.4"
   },
   "noAnalyze": true,
-  "license": "MIT",
+  "license": "Apache 2.0",
   "engines": {
     "node": ">=0.6.14"
   }

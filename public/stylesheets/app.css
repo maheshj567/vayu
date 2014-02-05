@@ -34,6 +34,7 @@ input[type="text"]
 {
 	font-size: 20px;
 	padding: 8px 20px 8px;
+    margin-bottom: 0px;
 }
 
 [contenteditable] {
@@ -70,6 +71,7 @@ input[type="text"]
 	background-repeat: no-repeat;
 	font-family: 'Lato', sans-serif;
 	margin-top: -11px;
+    margin-left: 0px;
 }
 
 #toolbar li
@@ -106,6 +108,11 @@ input[type="text"]
 	padding-left: 25px;
 }
 
+#boards-list
+{
+    margin-left: 0px;
+}
+
 #boards-list li
 {
 	font-family: 'Anonymous Pro', sans-serif;
@@ -121,6 +128,7 @@ input[type="text"]
 	-o-text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+    cursor: text;
 }
 
 #boards-list a:hover
@@ -260,6 +268,11 @@ input[type="text"]
 	white-space: nowrap
 }
 
+.dodo-list
+{
+    margin-left: 0px;
+}
+
 .dodo-list li
 {
 	min-height: 50px;
@@ -282,6 +295,11 @@ input[type="text"]
 .dodo
 {
     position: relative;
+}
+
+.dodo a[contenteditable]
+{
+    cursor: text;
 }
 
 .dodo-label[contenteditable]:hover, .dodo-label[contenteditable]:focus {

@@ -16,7 +16,8 @@
 		<title>Vayu - Get things done!</title>
 
 		<!-- Included CSS Files (Uncompressed) -->
-		<link rel="stylesheet" href="stylesheets/foundation.css">
+		<link rel="stylesheet" href="stylesheets/normalize.css" />
+		<link rel="stylesheet" href="stylesheets/foundation.css" />
 
 		<!-- Included CSS Files (Compressed) -->
 		<!-- <link rel="stylesheet" href="stylesheets/foundation.min.css"> -->
@@ -24,7 +25,7 @@
 		<link rel="stylesheet" href="stylesheets/popbox.css"/>
 		<link rel="stylesheet" href="stylesheets/app.css">
 
-		<script src="javascripts/modernizr.foundation.js"></script>
+		<!--<script src="javascripts/modernizr.foundation.js"></script>-->
 
 		<!-- IE Fix for HTML5 Tags -->
 		<!--[if lt IE 9]>
@@ -118,6 +119,9 @@
 
 		<!-- Initialize JS Plugins -->
 		<script src="javascripts/foundation.min.js"></script>
+		<script>
+          $(document).foundation();
+        </script>
 		<script src="javascripts/underscore.js"></script>
 		<script src="javascripts/backbone.js"></script>
 		<script src="javascripts/popbox.js"></script>
