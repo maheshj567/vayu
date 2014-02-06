@@ -1,0 +1,84 @@
+body
+{
+    background-image: url('../images/home_bg.png');
+}
+
+#home-content
+{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    font-family: Asap;
+    font-size: 16px;
+    color: #FFF;
+    margin-top: -50px;
+}
+
+#home-content a
+{
+    color: #FFF;
+    text-decoration: underline;
+}
+
+#home-content p
+{
+    margin-bottom: 7px;
+}
+
+#home-help
+{
+    display: block;
+    width: 46px;
+    height: 42px;
+    position: relative;
+    background-image: url('../images/help_btn.png');
+    cursor: pointer;
+    left: 50%;
+    top: 50%;
+    margin-left: 152px;
+    margin-top: -354px;
+    cursor: pointer;
+}
+
+#envelope
+{
+    display: block;
+    width: 358px;
+    height: 224px;
+    position: relative;
+    left: 50%;
+    /* foundation sets position of body to relative (not sure why), and this screws up top value. Browser doesn't consider it. So put this div inside a container with fixed position */
+    top: 50%;
+    background-image: url('../images/envelope.png');
+    background-repeat: no-repeat;
+    margin-left: -179px;
+    margin-top: -112px;
+}
+
+#fb-btn
+{
+    display: block;
+    width: 283px;
+    height: 58px;
+    position: relative;
+    background-image: url('../images/fb_btn.png');
+    cursor: pointer;
+    left: 50%;
+    top: 50%;
+    margin-left: -142px;
+    margin-top: -32px;
+    margin-bottom: 3px;
+}
+
+#home-info
+{
+    position: relative;
+    top: 50%;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+#info-modal
+{
+    border-radius: 8px;
+}

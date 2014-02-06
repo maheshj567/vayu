@@ -1,8 +1,2 @@
-*.class
-*.pyc
-*.pyo
-.svn
-_svn
-.project
-node_modules/
-iisnode/
+node_modules/*
+!node_modules/vayu*
