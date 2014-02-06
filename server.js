@@ -3,15 +3,12 @@
  */
 
 var express = require('express'),
-    routes = require('./routes'),
-    user = require('./routes/user'),
-    http = require('http'),
     path = require('path');
 
-var app = express();
+var app = module.exports = express();
 
 app.configure(function () {
-    app.set('port', process.env.PORT || 48389);
+    app.set('port', process.env.port || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
@@ -22,10 +19,16 @@ app.configure(function () {
     app.use(express.static(path.join(__dirname, 'public')));
 });
 
+app.get("/hi", function(req, res){
+    var body = 'Hello World';
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Length', Buffer.byteLength(body));
+    res.end(body);
+});
+
 app.configure('development', function () {
     app.use(express.errorHandler());
 });
 
-http.createServer(app).listen(app.get('port'), function () {
-    console.log("Express server listening on port " + app.get('port'));
-});
+app.listen(app.get('port'));
+console.log('Listening on port ' + app.get('port'));

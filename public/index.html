@@ -20,11 +20,12 @@
 
 		<!-- Included CSS Files (Compressed) -->
 		<!-- <link rel="stylesheet" href="stylesheets/foundation.min.css"> -->
-		<link href='http://fonts.googleapis.com/css?family=Dosis:500|Lato:300,400|Anonymous+Pro|' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Dosis:500|Lato:300,400|Anonymous+Pro|Asap|' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="stylesheets/popbox.css"/>
 		<link rel="stylesheet" href="stylesheets/app.css">
+		<link rel="stylesheet" href="stylesheets/index.css">
 
-		<script src="javascripts/modernizr.foundation.js"></script>
+		<script src="javascripts/vendor/modernizr.js"></script>
 
 		<!-- IE Fix for HTML5 Tags -->
 		<!--[if lt IE 9]>
@@ -33,98 +34,30 @@
 
 	</head>
 	<body>
-		<aside id="sidebar">
-			<div id="logo"></div>
-			<ul id="toolbar">
-				<li id="add-btn">
-					<a class="open" href="#">Add</a>
-					<div class='collapse'>
-						<div class='box'>
-							<div class='arrow'></div>
-							<div class='arrow-border'></div>
-							<form id="board-form" class="popbox-content">
-								<div class="input">
-									<input type="text" name="cm-name" id="board-name" placeholder="Give your board a name" />
-								</div>
-								<input type="submit" value="Hit it!" class="secondary button" />
-								<a href="#" class="close">Cancel</a>
-							</form>
-						</div>
-					</div>
-				</li>
-				<li id="reset-btn">
-					<a href="#">Reset</a>
-				</li>
-			</ul>
-			<nav id="boards-nav">
-				<ul id="boards-list"></ul>
-			</nav>
-		</aside>
-		<div id="paper-fold"></div>
-		<div id="right-toolbar">
-			<p id="selected-board"></p>
-			<div id="add-card-btn">
-				<a class="open" href="#">Add Card</a>
-				<div class='collapse'>
-					<div class='box'>
-						<div class='arrow'></div>
-						<div class='arrow-border'></div>
-						<form id="card-form" class="popbox-content">
-							<div class="input">
-								<input type="text" name="cm-name" id="card-name" placeholder="Give your card a name" />
-							</div>
-							<input type="submit" value="Hit it!" class="secondary button" />
-							<a href="#" class="close">Cancel</a>
-						</form>
-					</div>
-				</div>
-			</div>
+		<div id="home-content">
+		    <div id="envelope"></div>
+		    <a id="fb-btn" href="#"></a>
+		    <div id="home-info">
+		        <p>We cannot access your Facebook data.</p>
+		        <p>This is an open source project. Code on <a href="http://github.com/maheshj567/vayu" target="_blank">Github</a>.</p>
+		    </div>
+		    <div id="home-help" data-reveal-id="info-modal" data-reveal></div>
 		</div>
-		<div id="cards"></div>
-
-		<!-- Included JS Files (Uncompressed) -->
-		<!--
-
-		<script src="javascripts/jquery.js"></script>
-
-		<script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script>
-
-		<script src="javascripts/jquery.foundation.forms.js"></script>
-
-		<script src="javascripts/jquery.foundation.reveal.js"></script>
-
-		<script src="javascripts/jquery.foundation.orbit.js"></script>
-
-		<script src="javascripts/jquery.foundation.navigation.js"></script>
-
-		<script src="javascripts/jquery.foundation.buttons.js"></script>
-
-		<script src="javascripts/jquery.foundation.tabs.js"></script>
-
-		<script src="javascripts/jquery.foundation.tooltips.js"></script>
-
-		<script src="javascripts/jquery.foundation.accordion.js"></script>
-
-		<script src="javascripts/jquery.placeholder.js"></script>
-
-		<script src="javascripts/jquery.foundation.alerts.js"></script>
-
-		<script src="javascripts/jquery.foundation.topbar.js"></script>
-
-		-->
-
+		
+		<div id="info-modal" class="reveal-modal" data-reveal>
+            <h2>What is Vayu? You ask..</h2>
+            <p>It's a very simple todo's app to help you get things done.</p>
+        </div>
 		<!-- Included JS Files (Compressed) -->
-		<script src="javascripts/jquery.js"></script>
+		<script src="javascripts/vendor/jquery.js"></script>
+		<script src="javascripts/vendor/fastclick.js"></script>
 
 		<!-- Initialize JS Plugins -->
-		<script src="javascripts/foundation.min.js"></script>
-		<script src="javascripts/underscore.js"></script>
-		<script src="javascripts/backbone.js"></script>
-		<script src="javascripts/popbox.js"></script>
-		<script src="javascripts/data.js"></script>
+		<script src="javascripts/foundation/foundation.js"></script>
+		<script src="javascripts/foundation/foundation.reveal.js"></script>
 		
-		<!-- <script src="javascripts/foundation.app.js"></script> -->
-		
-		<script data-main="javascripts/main.js" src="javascripts/require.js"></script>
+		<script>
+            $(document).foundation();
+        </script>
 	</body>
 </html>

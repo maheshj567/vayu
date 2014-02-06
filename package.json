@@ -1,7 +1,10 @@
 {
   "name": "dodo_boards",
   "version": "0.2.0",
-  "author": "Mahesh Kumar J",
+  "author": {
+    "name": "Mahesh Kumar J",
+    "url": "http://maheshj.com"
+  },
   "description": "A simple app to get things done!",
   "contributors": [
     {
