@@ -266,6 +266,7 @@ input[type="text"]
 	-o-text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap
+	cursor: text;
 }
 
 .dodo-list
