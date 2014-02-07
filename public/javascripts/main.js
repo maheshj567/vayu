@@ -4,9 +4,9 @@ require.config({
   }
 });
 
-require(['dodo-boards-facade'], function(facade)
+require(['vayu-boards-facade'], function(facade)
 {
 	$(document).ready(function(){
 		appFacade.initialize();
 	});
-});
+});

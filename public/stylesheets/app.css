@@ -238,7 +238,6 @@ input[type="text"]
 	box-shadow: 0px 1px 5px #CCCCCC;
 	-moz-box-shadow: 0px 1px 5px #CCCCCC;
 	-webkit-box-shadow: 0px 1px 5px #CCCCCC;
-	min-height: 500px;
 	margin-bottom: 50px;
 	
 	-webkit-column-break-inside: avoid;
@@ -266,6 +265,7 @@ input[type="text"]
 	-o-text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap
+	cursor: text;
 }
 
 .dodo-list

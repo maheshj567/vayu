@@ -1,6 +1,6 @@
-define(["collections/dodos",
-		"views/dodos-view",
-		"text!templates/card-template.html"], function(Dodos, DodosView, CardTemplate)
+define(["collections/vtodos",
+		"views/vtodos-view",
+		"text!templates/card-template.html"], function(Vtodos, VtodosView, CardTemplate)
 {
 	var CardItemView = Backbone.View.extend({
 		tagName : "div",
@@ -12,7 +12,7 @@ define(["collections/dodos",
 		},
 
 		initialize : function() {
-			this.dodos_coll = new Dodos();
+			this.dodos_coll = new Vtodos();
 			this.dodos_coll.on("add", this.handleDodoAdded, this);
 
 			if (window.boards_view) {
@@ -45,7 +45,7 @@ define(["collections/dodos",
 			});
 			this.dodos_coll.reset(tempdodos);
 			if (!this.dodos_view) {
-				this.dodos_view = new DodosView({
+				this.dodos_view = new VtodosView({
 					el : $("#dodos_" + this.model.get("id")),
 					collection : this.dodos_coll
 				});

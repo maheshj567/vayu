@@ -41,9 +41,9 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
         },
 
 		handleAFocusIn : function(e) {
-			//TODO clean this up with a static const declaration of the "New Do-do" string
+			//TODO clean this up with a static const declaration of the "New todo" string
 			if ($(this.$el).hasClass("new-dodo")) {
-                if(e.currentTarget.innerHTML === "&lt;!-- New Do-do --&gt;")
+                if(e.currentTarget.innerHTML === "&lt;!-- New todo --&gt;")
                 {
                     e.currentTarget.innerHTML = "";
                     $(e.currentTarget).focus();
@@ -57,7 +57,7 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
 
 		handleAFocusOut : function(e) {
 			if (e.currentTarget.innerHTML === "") {
-				e.currentTarget.innerHTML = "&lt;!-- New Do-do --&gt;";
+				e.currentTarget.innerHTML = "&lt;!-- New todo --&gt;";
 			}
 		},
         

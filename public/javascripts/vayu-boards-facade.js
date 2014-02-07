@@ -1,13 +1,13 @@
-define(["dodo-prereqs",
-		"models/dodo-boards-app",
+define(["vayu-prereqs",
+		"models/vayu-boards-app",
 		"collections/boards",
 		"collections/cards",
-		"collections/dodos",
+		"collections/vtodos",
 		"views/new-board-form",
 		"views/new-card-form",
 		"views/boards-view",
 		"views/cards-view",
-		"views/dodos-view"], function(DodoPrereqs, DodoApp, Boards, Cards, Dodos, NewBoardFormView, NewCardFormView, BoardsView, CardsView, DodosView) {
+		"views/vtodos-view"], function(VayuPrereqs, VayuApp, Boards, Cards, Vtodos, NewBoardFormView, NewCardFormView, BoardsView, CardsView, VtodosView) {
 
 	var storageManager = {
 
@@ -81,9 +81,9 @@ define(["dodo-prereqs",
 		getDodos : function() {
 			var dodo_dodos = this.getDodosFromLocal();
 			if (dodo_dodos === "undefined" || !dodo_dodos) {
-				dodo_dodos = new Dodos();
+				dodo_dodos = new Vtodos();
 			} else {
-				dodo_dodos = new Dodos(JSON.parse(dodo_dodos));
+				dodo_dodos = new Vtodos(JSON.parse(dodo_dodos));
 			}
 			return dodo_dodos;
 		},
@@ -161,7 +161,7 @@ define(["dodo-prereqs",
 			storageManager.saveAll();
 		});
 		
-		dodo_app = new DodoApp();
+		dodo_app = new VayuApp();
 
 		boards_coll = storageManager.getBoards();
 
