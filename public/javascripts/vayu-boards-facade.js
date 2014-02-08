@@ -9,8 +9,8 @@ define(["vayu-prereqs",
 		"views/cards-view",
 		"views/vtodos-view"], function(VayuPrereqs, VayuApp, Boards, Cards, Vtodos, NewBoardFormView, NewCardFormView, BoardsView, CardsView, VtodosView) {
 
+	// TODO: make storageManager asynchronous so that it is compatible with remoteStorageManager
 	var storageManager = {
-
 		getBoards : function() {
 			var dodo_boards = this.getBoardsFromLocal();
             //FIXME: had to do this check because localStorage.removeItem is setting the value as undefined!
@@ -163,7 +163,12 @@ define(["vayu-prereqs",
 		
 		dodo_app = new VayuApp();
 
-		boards_coll = storageManager.getBoards();
+		// window.boards_coll = storageManager.getBoards();
+
+		//TODO: see if we can remove these from window
+		window.boards_coll = new Boards();
+		window.cards_coll = new Cards();
+		window.vtodos_coll = new Vtodos();
 
 		card_form_view = new NewCardFormView();
 		board_form_view = new NewBoardFormView();

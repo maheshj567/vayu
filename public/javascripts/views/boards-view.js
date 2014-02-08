@@ -16,17 +16,11 @@ define(["views/board-item-view",
 			this.collection.on("add", this.addBoard, this);
 			this.collection.on("remove", this.removeBoard, this);
 
-			this.renderBoards();
-
-			window.all_dodos = storageManager.getDodos();
-			window.all_cards = storageManager.getCards();
-
-			window.cards_coll = new Cards();
-			window.cards_view = new CardsView();
-			this.selectFirstBoard();
+			this.collection.fetch();
 		},
 
 		renderBoards : function() {
+			var boards = this.$el.find("li");
 			this.$el.find("li").remove();
 
 			if (this.collection.length != 0) {
@@ -38,6 +32,18 @@ define(["views/board-item-view",
 			_.each(boards_coll.models, function(item) {
 				this.renderBoardItem(item);
 			}, this);
+
+			//check if first load and if yes, select the first board
+			//TODO: remember last selected board and select that
+			if(boards.length == 0){
+				window.all_dodos = storageManager.getDodos();
+				window.all_cards = storageManager.getCards();
+
+				window.cards_coll = new Cards();
+				window.cards_view = new CardsView();
+
+				this.selectFirstBoard();
+			}
 		},
 
 		addBoard : function() {
@@ -95,6 +101,13 @@ define(["views/board-item-view",
 			if (cards.indexOf(cid) == -1) {
 				cards.push(cid);
 				boardmodel.set("cards", cards);
+				/*boardmodel.save({'cards': cards}, {patch: true, wait: true, sucess: function(model, response, options){
+					console.log(model);
+					console.log("success saving model...");
+				}, error: function(model, xhr, options){
+					console.log(model);
+					console.log("error saving model...");
+				}});*/
 			}
 		}
 	});
