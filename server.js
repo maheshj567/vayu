@@ -4,6 +4,8 @@
 
 var express = require('express'),
     hbs = require('hbs'),
+    redisStore = require('connect-redis')(express),
+    redis = require('redis').createClient(),
     path = require('path'),
     passport = require('passport'),
     vayu = require('vayu');
@@ -22,7 +24,14 @@ app.configure(function () {
     app.use(express.bodyParser());
     app.use( express.cookieParser());
     app.use(express.methodOverride());
-    app.use(express.session({ secret: 'keyboard cat' }));
+    app.use(express.session({
+        secret: "keyboard cat",
+        store: new redisStore({
+            host: 'localhost',
+            port: 6379,
+            client: redis
+        })
+    }));
     
     app.use(passport.initialize());
     app.use(passport.session());
