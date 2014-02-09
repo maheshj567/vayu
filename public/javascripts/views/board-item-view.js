@@ -22,16 +22,7 @@ define(["text!templates/board-template.html",
                 var tempcards = [];
                 var item;
 
-                _.each(cardids, function (id) {
-                    item = _.find(window.all_cards.models, function (item) {
-                        return item.get("id") == id;
-                    });
-                    if (item) {
-                        tempcards.push(item);
-                    }
-                    item = null;
-                });
-                window.cards_coll.reset(tempcards);
+                window.cards_coll.fetch({data:{"bid": this.model.get("id")}, reset: true});
             }
         },
 

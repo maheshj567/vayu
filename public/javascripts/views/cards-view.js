@@ -35,8 +35,8 @@ define(["views/card-item-view"], function(CardItemView)
 			return view;
 		},
 
-		createCard : function(cardname) {
-			var card = this.collection.createCard(cardname);
+		createCard : function(cardname, boardId) {
+			var card = this.collection.createCard(cardname, boardId);
 			this.collection.add(card, {
 				"at" : 0
 			});

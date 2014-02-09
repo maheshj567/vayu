@@ -105,10 +105,8 @@ define(["views/board-item-view",
 				// FIXME: don't like this here
 				// TODO: optimize update with patch: true
 				boardmodel.save({'cards': cards}, {sucess: function(model, response, options){
-					console.log(model);
 					console.log("success saving model...");
 				}, error: function(model, xhr, options){
-					console.log(model);
 					console.log("error saving model...");
 				}}); 
 			}
