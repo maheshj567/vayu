@@ -14,7 +14,7 @@ define(["models/board-item"], function(BoardItem)
 			var date = new Date();
 			var bid = date.getYear() + "" + date.getMonth() + "" + date.getDate() + "" + date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
 			var board = new BoardItem({
-				id : bid,
+				lid : bid,
 				name : name,
 				cards : []
 			});

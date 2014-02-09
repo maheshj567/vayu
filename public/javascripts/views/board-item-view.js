@@ -21,6 +21,8 @@ define(["text!templates/board-template.html",
                 var cardids = this.model.get("cards");
                 var tempcards = [];
                 var item;
+
+                //FIXME: backbonejs update caused all_cards to be undefined #backboneprob
                 _.each(cardids, function (id) {
                     item = _.find(window.all_cards.models, function (item) {
                         return item.get("id") == id;
@@ -40,7 +42,7 @@ define(["text!templates/board-template.html",
 
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
-            $(this.$el).attr("id", "board_" + this.model.get("id"));
+            $(this.$el).attr("id", "board_" + this.model.get("lid"));
 
             return this;
         },

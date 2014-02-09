@@ -73,7 +73,7 @@ define(["views/board-item-view",
 		selectBoard : function(e) {
 			var ci = window.dodo_app.get("selectedboard");
 			if (ci) {
-				var currentitem = $("#board_" + window.dodo_app.get("selectedboard").get("id"));
+				var currentitem = $("#board_" + window.dodo_app.get("selectedboard").get("lid"));
 				$(currentitem).removeClass("selected");
 			}
 
@@ -90,10 +90,10 @@ define(["views/board-item-view",
 			this.collection.add(boards_coll.createBoard(boardname));
 		},
 		addCardToCurrentBoard : function(cid) {
-			var bid = window.dodo_app.get("selectedboard").get("id");
+			var bid = window.dodo_app.get("selectedboard").get("lid");
 
 			var boardmodel = _.find(this.collection.models, function(item) {
-				return item.get("id") == bid;
+				return item.get("lid") == bid;
 			});
 
 			//TODO handling for null board
@@ -101,13 +101,16 @@ define(["views/board-item-view",
 			if (cards.indexOf(cid) == -1) {
 				cards.push(cid);
 				boardmodel.set("cards", cards);
-				/*boardmodel.save({'cards': cards}, {patch: true, wait: true, sucess: function(model, response, options){
+
+				// FIXME: don't like this here
+				// TODO: optimize update with patch: true
+				boardmodel.save({'cards': cards}, {sucess: function(model, response, options){
 					console.log(model);
 					console.log("success saving model...");
 				}, error: function(model, xhr, options){
 					console.log(model);
 					console.log("error saving model...");
-				}});*/
+				}}); 
 			}
 		}
 	});
