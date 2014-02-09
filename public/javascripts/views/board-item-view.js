@@ -22,7 +22,6 @@ define(["text!templates/board-template.html",
                 var tempcards = [];
                 var item;
 
-                //FIXME: backbonejs update caused all_cards to be undefined #backboneprob
                 _.each(cardids, function (id) {
                     item = _.find(window.all_cards.models, function (item) {
                         return item.get("id") == id;

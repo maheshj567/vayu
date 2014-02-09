@@ -16,7 +16,7 @@ define(["views/board-item-view",
 			this.collection.on("add", this.addBoard, this);
 			this.collection.on("remove", this.removeBoard, this);
 
-			this.collection.fetch();
+			this.collection.fetch({reset: true});
 		},
 
 		renderBoards : function() {
@@ -30,7 +30,7 @@ define(["views/board-item-view",
 			}
 
 			_.each(boards_coll.models, function(item) {
-				this.renderBoardItem(item);
+				this.renderBoardItem(item, false);
 			}, this);
 
 			//check if first load and if yes, select the first board
