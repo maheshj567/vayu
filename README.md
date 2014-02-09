@@ -1,4 +1,4 @@
-# Vayu
+# Vayu [![Dependency status](https://gemnasium.com/maheshj567/vayu.png)](https://gemnasium.com/maheshj567/vayu)
 
 It started off a project to help myself understand Backbone.js. Now I'm working on making it into a full featured app. The roadmap is a little fuzzy right now. I'm just adding whatever features that are on my mind.
 
