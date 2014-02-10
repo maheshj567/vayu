@@ -143,7 +143,7 @@ define(["vayu-prereqs",
 			'position' : 'br'
 		});
 
-		$('#reset-btn').click(function() {
+		/*$('#reset-btn').click(function() {
             var res = confirm("This will all your data. Are you sure?");
             if (res === true)
             {
@@ -151,19 +151,17 @@ define(["vayu-prereqs",
                 window.location.reload();
             }
 			return false;
-		});
+		});*/
 
 		$(window).resize(function() {
 			refreshDimensions();
 		});
 
-		$(window).unload(function() {
+		/*$(window).unload(function() {
 			storageManager.saveAll();
-		});
+		});*/
 		
 		dodo_app = new VayuApp();
-
-		// window.boards_coll = storageManager.getBoards();
 
 		//TODO: see if we can remove these from window
 		window.boards_coll = new Boards();

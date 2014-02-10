@@ -34,9 +34,9 @@ define(["collections/vtodos",
 			var dodoids = this.model.get("dodos");
 			var tempdodos = [];
 			var item;
-			_.each(dodoids, function(id) {
-				item = _.find(window.all_dodos.models, function(item) {
-					return item.get("id") == id;
+			_.each(dodoids, function(lid) {
+				item = _.find(window.vtodos_coll.models, function(item) {
+					return item.get("lid") == lid;
 				});
 				if (item) {
 					tempdodos.push(item);
@@ -47,7 +47,8 @@ define(["collections/vtodos",
 			if (!this.dodos_view) {
 				this.dodos_view = new VtodosView({
 					el : $("#dodos_" + this.model.get("lid")),
-					collection : this.dodos_coll
+					collection : this.dodos_coll,
+					cardId : this.model.get("lid")
 				});
 			}
 		},
@@ -55,8 +56,13 @@ define(["collections/vtodos",
 		handleDodoAdded : function() {
 			var item = arguments[0];
 			var dodos = this.model.get("dodos");
-			dodos.push(item.get("id"));
-			this.model.set("dodos", dodos);
+			dodos.push(item.get("lid"));
+
+			this.model.save({'dodos': dodos}, {success: function(model, response, options){
+				console.log("success saving card changes...");
+			}, error: function(model, xhr, options){
+				console.log("error saving card changes...");
+			}}); 
 		},
         
         handleCardNameEdit : function(e) {

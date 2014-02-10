@@ -3,11 +3,15 @@ define(["views/card-item-view"], function(CardItemView)
 	var CardsView = Backbone.View.extend({
 		el : $("#cards"),
 
+		cardViews : [],
+
 		initialize : function() {
 			this.collection = window.cards_coll;
 
 			this.collection.on("reset", this.renderCards, this);
 			this.collection.on("add", this.addCard, this);
+
+			window.vtodos_coll.on("reset", this.renderVTodos, this);
 
 			this.renderCards();
 		},
@@ -15,13 +19,16 @@ define(["views/card-item-view"], function(CardItemView)
 		renderCards : function() {
 			this.$el.find("div").remove();
 
+			cardViews = [];
+
 			_.each(this.collection.models, function(item) {
 				var view = this.renderCardItem(item);
+				cardViews.push(view);
 			}, this);
 		},
 
 		addCard : function() {
-			this.renderCardItem(arguments[0], true);
+			this.renderCardItem(arguments[0], true).renderDodos();
 			refreshDimensions();
 		},
 
@@ -31,7 +38,6 @@ define(["views/card-item-view"], function(CardItemView)
 			});
 			var view = cardItemView.render();
 			this.$el.prepend(view.el);
-			view.renderDodos();
 			return view;
 		},
 
@@ -40,10 +46,14 @@ define(["views/card-item-view"], function(CardItemView)
 			this.collection.add(card, {
 				"at" : 0
 			});
-			window.all_cards.add(card, {
-				"at" : 0
-			});
 		},
+
+		renderVTodos : function() {
+			for(var i=0; i < cardViews.length; i++)
+			{
+				cardViews[i].renderDodos();
+			}
+		}
 	});
 	
 	return CardsView;

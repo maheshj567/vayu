@@ -36,8 +36,7 @@ define(["views/board-item-view",
 			//check if first load and if yes, select the first board
 			//TODO: remember last selected board and select that
 			if(boards.length == 0){
-				window.all_dodos = storageManager.getDodos();
-				window.all_cards = storageManager.getCards();
+				// window.all_dodos = storageManager.getDodos();
 
 				window.cards_coll = new Cards();
 				window.cards_view = new CardsView();

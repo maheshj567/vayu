@@ -20,7 +20,7 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
 
 		render : function() {
 			this.$el.html(this.template(this.model.toJSON()));
-			$(this.$el).attr("id", "dodo_" + this.model.get("id"));
+			$(this.$el).attr("id", "dodo_" + this.model.get("lid"));
 
 			if (this.model.get("done") === true) {
 				$(this.$el).addClass("done-dodo");
@@ -50,7 +50,14 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
                 }
 			}else{
                 $(this.$el).toggleClass("done-dodo");
-                this.model.set("done", !this.model.get("done"));
+
+                var done = !this.model.get("done");
+
+                this.model.save({'done': done}, {success: function(model, response, options){
+					console.log("success saving card changes...");
+				}, error: function(model, xhr, options){
+					console.log("error saving card changes...");
+				}});
             }
 			return false;
 		},

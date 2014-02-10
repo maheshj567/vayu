@@ -22,7 +22,8 @@ define(["text!templates/board-template.html",
                 var tempcards = [];
                 var item;
 
-                window.cards_coll.fetch({data:{"bid": this.model.get("id")}, reset: true});
+                window.cards_coll.fetch({data:{"bid": this.model.get("lid")}, reset: true});
+                window.vtodos_coll.fetch({data:{"bid": this.model.get("lid")}, reset: true});
             }
         },
 
