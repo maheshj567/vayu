@@ -20,7 +20,7 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
 
 		render : function() {
 			this.$el.html(this.template(this.model.toJSON()));
-			$(this.$el).attr("id", "dodo_" + this.model.get("id"));
+			$(this.$el).attr("id", "dodo_" + this.model.get("lid"));
 
 			if (this.model.get("done") === true) {
 				$(this.$el).addClass("done-dodo");
@@ -41,23 +41,30 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
         },
 
 		handleAFocusIn : function(e) {
-			//TODO clean this up with a static const declaration of the "New Do-do" string
+			//TODO clean this up with a static const declaration of the "New todo" string
 			if ($(this.$el).hasClass("new-dodo")) {
-                if(e.currentTarget.innerHTML === "&lt;!-- New Do-do --&gt;")
+                if(e.currentTarget.innerHTML === "&lt;!-- New todo --&gt;")
                 {
                     e.currentTarget.innerHTML = "";
                     $(e.currentTarget).focus();
                 }
 			}else{
                 $(this.$el).toggleClass("done-dodo");
-                this.model.set("done", !this.model.get("done"));
+
+                var done = !this.model.get("done");
+
+                this.model.save({'done': done}, {success: function(model, response, options){
+					console.log("success saving card changes...");
+				}, error: function(model, xhr, options){
+					console.log("error saving card changes...");
+				}});
             }
 			return false;
 		},
 
 		handleAFocusOut : function(e) {
 			if (e.currentTarget.innerHTML === "") {
-				e.currentTarget.innerHTML = "&lt;!-- New Do-do --&gt;";
+				e.currentTarget.innerHTML = "&lt;!-- New todo --&gt;";
 			}
 		},
         
@@ -76,8 +83,7 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
 				var title = $(e.currentTarget).html();
 				this.model.set("title", title);
                 
-                console.log(this.model.get("title"));
-				// document.execCommand('undo');
+                // document.execCommand('undo');
 				e.currentTarget.blur();
                 
                 //required, if not, browser changes content to wrap it in a div

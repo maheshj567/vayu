@@ -1,11 +1,17 @@
 define(["views/dodo-item-view"], function(DodoItemView)
 {
-	var DodosView = Backbone.View.extend({
+	var VTodosView = Backbone.View.extend({
 
-		initialize : function() {
+		cardId : "-",
+
+		initialize : function(options) {
 
 			this.collection.on("reset", this.renderDodos, this);
 			this.collection.on("add", this.addDodo, this);
+
+			this.options = options;
+
+			this.cardId = this.options.cardId;
 
 			this.renderDodos();
 		},
@@ -57,23 +63,12 @@ define(["views/dodo-item-view"], function(DodoItemView)
 		},
 
 		createDodo : function(dodotitle) {
-			var dodo = this.collection.createDodo(dodotitle);
+			console.log(this);
+			var dodo = this.collection.createDodo(dodotitle, window.dodo_app.get("selectedboard").get("lid"), this.cardId);
 			this.collection.add(dodo);
-			window.all_dodos.add(dodo);
-		},
-
-		addDodoToCardCollection : function(did) {
-			var cardmodel = _.find(this.collection.models, function(item) {
-				return item.get("id") == bid;
-			});
-
-			var cards = boardmodel.get("cards");
-			if (cards.indexOf(cid) == -1) {
-				cards.push(cid);
-				boardmodel.set("cards", cards);
-			}
+			// window.all_dodos.add(dodo);
 		}
 	});
 	
-	return DodosView;
+	return VTodosView;
 });

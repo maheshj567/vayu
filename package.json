@@ -1,7 +1,10 @@
 {
   "name": "vayu",
   "version": "0.3.0",
-  "author": "Mahesh Kumar J",
+  "author": {
+    "name": "Mahesh Kumar J",
+    "url": "http://maheshj.com"
+  },
   "description": "A simple app to get things done!",
   "contributors": [
     {
@@ -14,7 +17,14 @@
   ],
   "dependencies": {
     "jade": "*",
-    "express": "~3.4.4"
+    "express": "~3.4.4",
+    "passport": "~0.2.0",
+    "nconf": "~0.6.9",
+    "passport-facebook": "~1.0.2",
+    "mongoose": "~3.6.20",
+    "hbs": "~2.4.0",
+    "redis": "~0.10.0",
+    "moment": "~2.5.1"
   },
   "noAnalyze": true,
   "license": "Apache 2.0",

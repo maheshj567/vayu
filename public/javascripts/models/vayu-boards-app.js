@@ -1,10 +1,10 @@
 define([], function()
 {
-	var DodoApp = Backbone.Model.extend({
+	var VayuApp = Backbone.Model.extend({
 		defaults : {
 			selectedboard : null
 		}
 	});
 	
-	return DodoApp;
+	return VayuApp;
 });
