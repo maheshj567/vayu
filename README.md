@@ -13,7 +13,8 @@ Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/mah
 3. Create cards
 4. Edit cards
 5. Create/finish todo's
-6. Stores all data in your browser's local storage. So it won't be deleted even when you refresh the web page
+6. Facebook login
+7. Uses MongoDB for storing data
 
 ## Technical details
 
@@ -22,15 +23,26 @@ Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/mah
 3. **Zurb Foundation** framework for UI
 4. **Express (Node.js)** added as server side framework (using just to serve static assets right now)
 
-### Things to figure out
-1. Database technology
-3. If real time (websockets) is required
+### Roadmap
+1. Edit/delete todos
+2. Delete/archive boards and cards
+3. Better design of the app
+4. Search
 
 ## License
 
 Apache License, Version 2.0
 
 ## Progress
+
+### v0.4
+
+* Upgraded to Foundation 5
+* MongoDB backend
+* Redis for session management
+* FB login integration
+* Server side integration
+* Finished on 14 Feb, '14'
 
 ### v0.3
 
