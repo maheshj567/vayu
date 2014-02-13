@@ -21,16 +21,9 @@ define(["text!templates/board-template.html",
                 var cardids = this.model.get("cards");
                 var tempcards = [];
                 var item;
-                _.each(cardids, function (id) {
-                    item = _.find(window.all_cards.models, function (item) {
-                        return item.get("id") == id;
-                    });
-                    if (item) {
-                        tempcards.push(item);
-                    }
-                    item = null;
-                });
-                window.cards_coll.reset(tempcards);
+
+                window.cards_coll.fetch({data:{"bid": this.model.get("lid")}, reset: true});
+                window.vtodos_coll.fetch({data:{"bid": this.model.get("lid")}, reset: true});
             }
         },
 
@@ -40,7 +33,7 @@ define(["text!templates/board-template.html",
 
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
-            $(this.$el).attr("id", "board_" + this.model.get("id"));
+            $(this.$el).attr("id", "board_" + this.model.get("lid"));
 
             return this;
         },
@@ -54,7 +47,11 @@ define(["text!templates/board-template.html",
             } else if (ent) {
                 var name = $(e.currentTarget).html();
                 if (name !== '') {
-                    this.model.set("name", name);
+                    this.model.save({'name': name}, {success: function(model, response, options){
+                        console.log("success editing board name...");
+                    }, error: function(model, xhr, options){
+                        console.log("error editing boarding name...");
+                    }});
                     $("#selected-board").html(name);
                 } else {
                     document.execCommand('undo');
