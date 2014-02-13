@@ -1,4 +1,4 @@
-# Vayu [![Code Climate](https://codeclimate.com/github/maheshj567/vayu.png)](https://codeclimate.com/github/maheshj567/vayu) [![Dependency status](https://gemnasium.com/maheshj567/vayu.png)](https://gemnasium.com/maheshj567/vayu)
+# Vayu [![Code Climate](https://codeclimate.com/github/maheshj567/vayu.png)](https://codeclimate.com/github/maheshj567/vayu) [![Dependency status](https://gemnasium.com/maheshj567/vayu.png)](https://gemnasium.com/maheshj567/vayu) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/maheshj567/vayu/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 It started off a project to help myself understand Backbone.js. Now I'm working on making it into a full featured app. The roadmap is a little fuzzy right now. I'm just adding whatever features that are on my mind.
 
@@ -18,10 +18,12 @@ Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/mah
 
 ## Technical details
 
-1. **HTML5** localstorage APIs
+1. **HTML5** localstorage APIs (not using from v0.4)
 2. **Backbone.js** for app logic
 3. **Zurb Foundation** framework for UI
 4. **Express (Node.js)** added as server side framework (using just to serve static assets right now)
+5. **MongoDB** for storing data
+6. **Redis** for session store
 
 ### Roadmap
 1. Edit/delete todos
@@ -70,5 +72,3 @@ Apache License, Version 2.0
 * Reset everything
 * Store data in LocalStorage
 * Finished on 07 Oct, '12
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/maheshj567/vayu/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
