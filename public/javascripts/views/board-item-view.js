@@ -47,7 +47,11 @@ define(["text!templates/board-template.html",
             } else if (ent) {
                 var name = $(e.currentTarget).html();
                 if (name !== '') {
-                    this.model.set("name", name);
+                    this.model.save({'name': name}, {success: function(model, response, options){
+                        console.log("success editing board name...");
+                    }, error: function(model, xhr, options){
+                        console.log("error editing boarding name...");
+                    }});
                     $("#selected-board").html(name);
                 } else {
                     document.execCommand('undo');

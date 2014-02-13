@@ -75,7 +75,11 @@ define(["collections/vtodos",
 				var name = $(e.currentTarget).html();
                 if(name !== '')
                 {
-                    this.model.set("name", name);
+                    this.model.save({'name': name}, {success: function(model, response, options){
+						console.log("success editing card name...");
+					}, error: function(model, xhr, options){
+						console.log("error editing card name...");
+					}});
                 }else{
                     document.execCommand('undo');
                 }

@@ -24,7 +24,7 @@ define(["models/board-item"], function(BoardItem)
 			//FIXME: wait: true doesn't seem to work
 			board.save({}, {success: function(model, response, options)
 			{
-				console.log(response);
+				console.log("success saving board...");
 			}, error: function(model, xhr, options)
 			{
 				// handler for non 200 response

@@ -83,8 +83,7 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
 				var title = $(e.currentTarget).html();
 				this.model.set("title", title);
                 
-                console.log(this.model.get("title"));
-				// document.execCommand('undo');
+                // document.execCommand('undo');
 				e.currentTarget.blur();
                 
                 //required, if not, browser changes content to wrap it in a div
