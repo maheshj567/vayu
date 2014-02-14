@@ -14,6 +14,10 @@ var app = module.exports = express();
 
 app.configure(function () {
     app.set('port', process.env.port || 8080);
+    app.set('ipaddress', process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
+    app.set('redisport', process.env.OPENSHIFT_REDIS_PORT || 6379);
+    app.set('redishost', process.env.OPENSHIFT_REDIS_HOST || 'localhost');
+    app.get('redispass', process.env.REDIS_PASSWORD || '');
     
     app.set('views', __dirname + '/views');
     app.set('view engine', 'html');
@@ -27,8 +31,9 @@ app.configure(function () {
     app.use(express.session({
         secret: "keyboard cat",
         store: new redisStore({
-            host: 'localhost',
-            port: 6379,
+            host: app.get('redishost'),
+            port: app.get('redisport'),
+            pass: app.get('redispass'),
             client: redis
         })
     }));
@@ -67,5 +72,5 @@ app.configure('development', function () {
 
 vayu.init(app);
 
-app.listen(app.get('port'));
+app.listen(app.get('port'), app.get('ipaddress'));
 console.log('Listening on port ' + app.get('port'));
