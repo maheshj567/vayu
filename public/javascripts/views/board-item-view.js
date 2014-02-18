@@ -22,6 +22,9 @@ define(["text!templates/board-template.html",
                 var tempcards = [];
                 var item;
 
+                window.cards_coll.reset();
+                window.vtodos_coll.reset();
+
                 window.cards_coll.fetch({data:{"bid": this.model.get("lid")}, reset: true});
                 window.vtodos_coll.fetch({data:{"bid": this.model.get("lid")}, reset: true});
             }
