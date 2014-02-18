@@ -26,10 +26,7 @@ define(["views/card-item-view"], function(CardItemView)
 				cardViews.push(view);
 			}, this);
 
-			if(window.vtodos_coll.length > 0)
-			{
-				this.renderVTodos();
-			}
+			this.renderVTodos();
 		},
 
 		addCard : function() {
