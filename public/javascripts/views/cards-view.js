@@ -25,6 +25,11 @@ define(["views/card-item-view"], function(CardItemView)
 				var view = this.renderCardItem(item);
 				cardViews.push(view);
 			}, this);
+
+			if(window.vtodos_coll.length > 0)
+			{
+				this.renderVTodos();
+			}
 		},
 
 		addCard : function() {
