@@ -26,10 +26,7 @@ Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/mah
 6. **Redis** for session store
 
 ### Roadmap
-1. Edit/delete todos
-2. Delete/archive boards and cards
-3. Better design of the app
-4. Search
+Track the roadmap [here](https://updatey.com/vayu/).
 
 ## License
 
