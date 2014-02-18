@@ -26,7 +26,7 @@ define([], function()
 		    response.done = response.d ? true : false
 
 		    delete response.t;
-		    delete response.done;
+		    delete response.d;
 
 		    return response;
 		}
