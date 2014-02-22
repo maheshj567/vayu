@@ -344,23 +344,47 @@ input[type="text"]
     right: 0px;
 }
 
-.vtodo-edit-btn
-{
-    background-image: url('../images/edit_icon.png');
-    background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;
-    display: none;
-    position: absolute;
-    top: 5px;
-    right: 0px;
-}
-
 .new-dodo
 {
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300 !important;
+}
+
+.edit-menu
+{
+	background-image: url('../images/edit_bg.png');
+    background-repeat: no-repeat;
+    width: 62px;
+    height: 30px;
+    display: none;
+    position: absolute;
+    top: 8px;
+    right: -20px;
+}
+
+.edit-btn
+{
+    background-image: url('../images/edit_icon.png');
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 11px;
+    position: absolute;
+    padding: 10px;
+    top: 10px;
+    left: 15px;
+}
+
+.delete-btn
+{
+    background-image: url('../images/cross_icon.png');
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 11px;
+    position: absolute;
+    padding: 10px;
+    top: 10px;
+    left: 40px;
 }
 
 /* iPads (portrait and landscape) ----------- */
