@@ -10,12 +10,14 @@ define([], function()
 				return date.getYear() + "" + date.getMonth() + "" + date.getDate() + "" + date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
 			}(),
 			bid : "-",
+			//TODO rename cid as it is used internally by backbonejs
 			cid : "-",
 			title : "-",
 			done : false
 		},
 
-		url : function() {
+		//using urlRoot instead of url to bring the collection into context (for delete functionality, if only url is defined, the id is not being sent)
+		urlRoot : function() {
 			return '/vtodos';
 		},
 

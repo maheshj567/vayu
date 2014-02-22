@@ -14,6 +14,7 @@ define(["collections/vtodos",
 		initialize : function() {
 			this.dodos_coll = new Vtodos();
 			this.dodos_coll.on("add", this.handleDodoAdded, this);
+			this.dodos_coll.on("remove", this.handleDodoRemoved, this);
 
 			if (window.boards_view) {
 				window.boards_view.addCardToCurrentBoard(this.model.get("lid"));
@@ -59,6 +60,17 @@ define(["collections/vtodos",
 			dodos.push(item.get("lid"));
 
 			this.model.save({'dodos': dodos}, {success: function(model, response, options){
+				console.log("success saving card changes...");
+			}, error: function(model, xhr, options){
+				console.log("error saving card changes...");
+			}}); 
+		},
+
+		handleDodoRemoved : function(model, collection, options) {
+			var vtodos = this.model.get("dodos");
+			vtodos = _.without(vtodos, model.get("lid"));
+
+			this.model.save({'dodos': vtodos}, {success: function(mod, response, options){
 				console.log("success saving card changes...");
 			}, error: function(model, xhr, options){
 				console.log("error saving card changes...");

@@ -12,11 +12,14 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 			"click .vtodo-label" : "handleAFocusIn",
 			"focusout a" : "handleAFocusOut",
             "click .dodo-more-btn" : "handleMore",
-            "click .vtodo-edit-btn" : "handleEdit"
+            "click .edit-btn" : "handleEdit",
+            "click .delete-btn" : "handleDelete"
 		},
 
 		initialize : function() {
-
+			this.model.on("destroy", function(){
+				$(this.$el).remove();
+			}, this);
 		},
 
 		render : function() {
@@ -33,12 +36,12 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
         handleMouseOver : function(e) {
             if(!$(this.$el).hasClass("new-dodo"))
             {
-                $(this.$el).find(".vtodo-edit-btn").show();
+                $(this.$el).find(".edit-menu").show();
             }
         },
         
         handleMouseOut : function(e) {
-            $(this.$el).find(".vtodo-edit-btn").hide();
+            $(this.$el).find(".edit-menu").hide();
         },
 
 		handleAFocusIn : function(e) {
@@ -73,10 +76,12 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 					e.currentTarget.innerHTML = "&lt;!-- New todo --&gt;";
 				}
 			}else{
-				document.execCommand('undo');
-				e.currentTarget.blur();
-
-				$(".vtodo-label", this.$el).removeAttr("contenteditable");
+				if($(".vtodo-label", this.$el).is("[contenteditable]"))
+				{
+					document.execCommand('undo');
+					e.currentTarget.blur();
+					$(e.currentTarget).removeAttr("contenteditable");
+				}
 			}
 		},
         
@@ -88,6 +93,15 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
         	$(".vtodo-label", this.$el).attr("contenteditable", true);
         	$(".vtodo-label", this.$el).focus();
             return false;
+        },
+
+        handleDelete : function(e) {
+        	this.model.destroy({success: function(model, response, options){
+				console.log("success deleting vtodo...");
+			}, error: function(model, xhr, options){
+				console.log("error deleting vtodo...");
+			}});
+        	return false;
         },
 
         handleVTodoKeyDown : function(e) {
@@ -125,6 +139,8 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 				document.execCommand('undo');
 				e.currentTarget.blur();
 			} else if (ent) {
+
+				$(e.currentTarget).removeAttr("contenteditable");
 
 				var title = $(e.currentTarget).html();
 				this.model.set("title", title);
