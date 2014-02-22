@@ -1,4 +1,4 @@
-define(["views/dodo-item-view"], function(DodoItemView)
+define(["views/vtodo-item-view"], function(VtodoItemView)
 {
 	var VTodosView = Backbone.View.extend({
 
@@ -6,67 +6,75 @@ define(["views/dodo-item-view"], function(DodoItemView)
 
 		initialize : function(options) {
 
-			this.collection.on("reset", this.renderDodos, this);
-			this.collection.on("add", this.addDodo, this);
+			this.collection.on("reset", this.renderVtodos, this);
+			this.collection.on("add", this.addVtodo, this);
 
 			this.options = options;
 
 			this.cardId = this.options.cardId;
 
-			this.renderDodos();
+			this.renderVtodos();
 		},
 
-		renderDodos : function() {
+		renderVtodos : function() {
 			this.$el.find("li").remove();
 
 			_.each(this.collection.models, function(item) {
-				this.renderDodoItem(item);
+				this.renderVtodoItem(item);
 			}, this);
 
-			this.renderNewDodoHolder();
+			this.renderNewVtodoHolder();
 		},
 
-		addDodo : function() {
-			this.removeNewDodoHolder();
-			this.renderDodoItem(arguments[0]);
-			this.renderNewDodoHolder(true);
+		addVtodo : function() {
+			this.removeNewVtodoHolder();
+			this.renderVtodoItem(arguments[0]);
+			this.renderNewVtodoHolder(true);
 			refreshDimensions();
 		},
 
-		renderDodoItem : function(item) {
-			var dodoItemView = new DodoItemView({
+		renderVtodoItem : function(item) {
+			var vtodoItemView = new VtodoItemView({
 				model : item
 			});
-			var view = dodoItemView.render();
+			var view = vtodoItemView.render();
 			this.$el.append(view.el);
 			return view;
 		},
 
-		renderNewDodoHolder : function(focus) {
-			var newdodo = this.collection.createPlaceHolder();
+		renderNewVtodoHolder : function(focus) {
+			var newvtodo = this.collection.createPlaceHolderModel();
 			var root = this;
-			newdodo.on("change", function() {
-				root.createDodo(this.get("title"));
+			newvtodo.on("change", function() {
+				root.createVtodo(this.get("title"));
+				this.off("change");
 			});
-			var view = this.renderDodoItem(newdodo);
+			var view = this.renderVtodoItem(newvtodo);
             $(view.$el).addClass("new-dodo");
             $(view.$el).addClass("gen_" + Math.round(Math.random()*10000));
-			$(view.$el).find(".dodo-label").attr("contenteditable", true);
+			$(view.$el).find(".vtodo-label").attr("contenteditable", true);
 
 			if (focus) {
-				$(view.$el).find(".dodo-label").click();
+				$(view.$el).find(".vtodo-label").click();
 			}
 		},
 
-		removeNewDodoHolder : function() {
+		removeNewVtodoHolder : function() {
 			$(this.$el).find(".new-dodo").remove();
-		},
+		},/*
 
-		createDodo : function(dodotitle) {
-			console.log(this);
-			var dodo = this.collection.createDodo(dodotitle, window.dodo_app.get("selectedboard").get("lid"), this.cardId);
-			this.collection.add(dodo);
-			// window.all_dodos.add(dodo);
+		editVtodo : function() {
+			
+		},*/
+
+		createVtodo : function(dodotitle) {
+			var vtodo = this.collection.createVtodo(dodotitle, window.dodo_app.get("selectedboard").get("lid"), this.cardId);
+			this.collection.add(vtodo);
+
+			/*var root = this;
+			vtodo.on("change", function(){
+				root.editVtodo(this);
+			});*/
 		}
 	});
 	

@@ -1,4 +1,4 @@
-define(["models/dodo-item"], function(VtodoItem)
+define(["models/vtodo-item"], function(VtodoItem)
 {
 	//dodo collection
 	var Vtodos = Backbone.Collection.extend({
@@ -8,7 +8,7 @@ define(["models/dodo-item"], function(VtodoItem)
 			return '/vtodos';
 		},
 		
-		createDodo : function(vtodotitle, boarId, cardId)
+		createVtodo : function(vtodotitle, boarId, cardId)
 		{
 			var date = new Date();
 			var tid = date.getYear() + "" + date.getMonth() + "" + date.getDate() + "" + date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
@@ -30,7 +30,7 @@ define(["models/dodo-item"], function(VtodoItem)
 			return vtodo;
 		},
 		
-		createPlaceHolder : function()
+		createPlaceHolderModel : function()
 		{
 			var vtodo = new VtodoItem({
 				lid : "new",
