@@ -26,13 +26,21 @@ Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/mah
 6. **Redis** for session store
 
 ### Roadmap
-Track the roadmap [here](https://updatey.com/vayu/).
+
+* New design
+* Search
 
 ## License
 
 Apache License, Version 2.0
 
 ## Progress
+
+### v0.5
+
+* Edit and delete todos
+* Edit and delete cards
+* Finished on 22 Feb, 14
 
 ### v0.4
 

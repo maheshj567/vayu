@@ -81,13 +81,16 @@ define(["views/board-item-view",
 			$("body").scrollTop(0);
 			e.preventDefault();
 		},
+		
 		selectFirstBoard : function() {
 			var firstitem = $(this.$el).find("li")[0];
 			$(firstitem).addClass("selected");
 		},
+
 		createBoard : function(boardname) {
 			this.collection.add(boards_coll.createBoard(boardname));
 		},
+
 		addCardToCurrentBoard : function(cid) {
 			var bid = window.dodo_app.get("selectedboard").get("lid");
 

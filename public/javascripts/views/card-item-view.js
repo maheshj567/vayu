@@ -8,13 +8,21 @@ define(["collections/vtodos",
 		template : _.template(CardTemplate),
         
         events : {
-			"keydown .card-title" : "handleCardNameEdit"
+			"keydown .card-title" : "handleCardNameEdit",
+			"mouseover .card-title" : "handleMouseOver",
+			"mouseout .card-title" : "handleMouseOut",
+			"click .edit-btn" : "handleEdit",
+            "click .delete-btn" : "handleDelete"
 		},
 
 		initialize : function() {
 			this.dodos_coll = new Vtodos();
 			this.dodos_coll.on("add", this.handleDodoAdded, this);
 			this.dodos_coll.on("remove", this.handleDodoRemoved, this);
+
+			this.model.on("destroy", function(){
+				$(this.$el).remove();
+			}, this);
 
 			if (window.boards_view) {
 				window.boards_view.addCardToCurrentBoard(this.model.get("lid"));
@@ -30,6 +38,29 @@ define(["collections/vtodos",
 
 			return this;
 		},
+
+		handleMouseOver : function(e) {
+            $(".edit-menu", this.$el).first().show();
+        },
+        
+        handleMouseOut : function(e) {
+            $(this.$el).find(".edit-menu").first().hide();
+        },
+
+        handleEdit : function(e) {
+        	$(".card-title", this.$el).attr("contenteditable", true);
+        	$(".card-title", this.$el).focus();
+            return false;
+        },
+
+        handleDelete : function(e) {
+        	this.model.destroy({success: function(model, response, options){
+				console.log("success deleting card...");
+			}, error: function(model, xhr, options){
+				console.log("error deleting card...");
+			}});
+        	return false;
+        },
 
 		renderDodos : function() {
 			var dodoids = this.model.get("dodos");

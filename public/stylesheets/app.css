@@ -263,9 +263,9 @@ input[type="text"]
 	background-color: #646464;
 	text-overflow: ellipsis;
 	-o-text-overflow: ellipsis;
-	overflow: hidden;
+	overflow: visible;
 	white-space: nowrap;
-	cursor: text;
+	position: relative;
 }
 
 .dodo-list
