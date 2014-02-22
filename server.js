@@ -29,13 +29,13 @@ app.configure(function () {
     app.use( express.cookieParser());
     app.use(express.methodOverride());
     app.use(express.session({
-        secret: nconf.get('VAYU_APP_SESS_SECRET'),
+        secret: nconf.get('VAYU_APP_SESS_SECRET')/*,
         store: new redisStore({
             host: (nconf.get('OPENSHIFT_REDIS_HOST') || nconf.get('VAYU_REDIS_HOST')),
             port: (nconf.get('OPENSHIFT_REDIS_PORT') || nconf.get('VAYU_REDIS_PORT')),
             pass: (nconf.get('REDIS_PASSWORD') || nconf.get('VAYU_REDIS_PASSWORD')),
             client: redis
-        })
+        })*/
     }));
     
     app.use(passport.initialize());
