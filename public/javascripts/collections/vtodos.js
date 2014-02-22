@@ -8,7 +8,7 @@ define(["models/dodo-item"], function(VtodoItem)
 			return '/vtodos';
 		},
 		
-		createDodo : function(vtodotitle, boarId, cardId)
+		createVtodo : function(vtodotitle, boarId, cardId)
 		{
 			var date = new Date();
 			var tid = date.getYear() + "" + date.getMonth() + "" + date.getDate() + "" + date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();

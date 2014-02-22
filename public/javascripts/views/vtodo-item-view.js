@@ -1,17 +1,18 @@
-define(["text!templates/dodo-template.html"], function(DodoTemplate)
+define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 {
 	var DodoItemView = Backbone.View.extend({
 		tagName : "li",
 		className : "dodo",
-		template : _.template(DodoTemplate),
+		template : _.template(VtodoTemplate),
 
 		events : {
             "mouseover" : "handleMouseOver",
             "mouseout" : "handleMouseOut",
-			"keydown .dodo-label" : "handleNewDodo",
-			"click .dodo-label" : "handleAFocusIn",
+			"keydown .vtodo-label" : "handleVTodoKeyDown",
+			"click .vtodo-label" : "handleAFocusIn",
 			"focusout a" : "handleAFocusOut",
-            "click .dodo-more-btn" : "handleMore"
+            "click .dodo-more-btn" : "handleMore",
+            "click .vtodo-edit-btn" : "handleEdit"
 		},
 
 		initialize : function() {
@@ -32,12 +33,12 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
         handleMouseOver : function(e) {
             if(!$(this.$el).hasClass("new-dodo"))
             {
-                // $(this.$el).find(".dodo-more-btn").show();
+                $(this.$el).find(".vtodo-edit-btn").show();
             }
         },
         
         handleMouseOut : function(e) {
-            $(this.$el).find(".dodo-more-btn").hide();
+            $(this.$el).find(".vtodo-edit-btn").hide();
         },
 
 		handleAFocusIn : function(e) {
@@ -54,9 +55,9 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
                 var done = !this.model.get("done");
 
                 this.model.save({'done': done}, {success: function(model, response, options){
-					console.log("success saving card changes...");
+					console.log("success saving vtodo changes...");
 				}, error: function(model, xhr, options){
-					console.log("error saving card changes...");
+					console.log("error saving vtodo changes...");
 				}});
             }
 			return false;
@@ -72,8 +73,39 @@ define(["text!templates/dodo-template.html"], function(DodoTemplate)
             return false;
         },
 
-		handleNewDodo : function(e) {
+        handleEdit : function(e) {
+            return false;
+        },
+
+        handleVTodoKeyDown : function(e) {
+        	if ($(this.$el).hasClass("new-dodo")) {
+    			this.handleNewVtodo(e);
+    		}else{
+    			this.handleVTodoEdit(e);
+    		}
+        },
+
+		handleNewVtodo : function(e) {
             var esc = event.which == 27;
+			var ent = event.which == 13;
+			if (esc) {
+				// restore state
+				document.execCommand('undo');
+				e.currentTarget.blur();
+			} else if (ent) {
+				var title = $(e.currentTarget).html();
+				this.model.set("title", title);
+                
+                // document.execCommand('undo');
+				e.currentTarget.blur();
+                
+                //required, if not, browser changes content to wrap it in a div
+				event.preventDefault();
+			}
+		},
+
+		handleVTodoEdit : function(e) {
+			var esc = event.which == 27;
 			var ent = event.which == 13;
 			if (esc) {
 				// restore state
