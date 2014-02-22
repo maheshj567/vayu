@@ -14,7 +14,7 @@ define([], function()
 			dodos : []
 		},
 
-		url : function() {
+		urlRoot : function() {
 			return '/cards';
 		},
 

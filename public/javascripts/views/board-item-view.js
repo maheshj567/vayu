@@ -27,6 +27,8 @@ define(["text!templates/board-template.html",
 
                 window.cards_coll.fetch({data:{"bid": this.model.get("lid")}, reset: true});
                 window.vtodos_coll.fetch({data:{"bid": this.model.get("lid")}, reset: true});
+
+                window.cards_coll.on("remove", this.handleCardRemoved, this);
             }
         },
 
@@ -65,6 +67,17 @@ define(["text!templates/board-template.html",
                 e.currentTarget.blur();
                 event.preventDefault();
             }
+        },
+
+        handleCardRemoved: function(model, collection, options) {
+            var cards = this.model.get("cards");
+            cards = _.without(cards, model.get("lid"));
+
+            this.model.save({'cards': cards}, {success: function(mod, response, options){
+                console.log("success saving board changes...");
+            }, error: function(model, xhr, options){
+                console.log("error saving board changes...");
+            }}); 
         }
     });
 
