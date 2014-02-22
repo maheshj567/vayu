@@ -4,8 +4,8 @@
 
 var express = require('express'),
     hbs = require('hbs'),
-    redisStore = require('connect-redis')(express),
-    redis = require('redis').createClient(),
+    // redisStore = require('connect-redis')(express),
+    // redis = require('redis').createClient(),
     path = require('path'),
     passport = require('passport'),
     nconf = require('nconf'),
