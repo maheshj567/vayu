@@ -1,4 +1,4 @@
-define(["models/dodo-item"], function(VtodoItem)
+define(["models/vtodo-item"], function(VtodoItem)
 {
 	//dodo collection
 	var Vtodos = Backbone.Collection.extend({
@@ -30,7 +30,7 @@ define(["models/dodo-item"], function(VtodoItem)
 			return vtodo;
 		},
 		
-		createPlaceHolder : function()
+		createPlaceHolderModel : function()
 		{
 			var vtodo = new VtodoItem({
 				lid : "new",

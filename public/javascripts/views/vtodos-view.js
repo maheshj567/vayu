@@ -43,10 +43,11 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 		},
 
 		renderNewVtodoHolder : function(focus) {
-			var newvtodo = this.collection.createPlaceHolder();
+			var newvtodo = this.collection.createPlaceHolderModel();
 			var root = this;
 			newvtodo.on("change", function() {
 				root.createVtodo(this.get("title"));
+				this.off("change");
 			});
 			var view = this.renderVtodoItem(newvtodo);
             $(view.$el).addClass("new-dodo");
@@ -60,11 +61,20 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 
 		removeNewVtodoHolder : function() {
 			$(this.$el).find(".new-dodo").remove();
-		},
+		},/*
+
+		editVtodo : function() {
+			
+		},*/
 
 		createVtodo : function(dodotitle) {
 			var vtodo = this.collection.createVtodo(dodotitle, window.dodo_app.get("selectedboard").get("lid"), this.cardId);
 			this.collection.add(vtodo);
+
+			/*var root = this;
+			vtodo.on("change", function(){
+				root.editVtodo(this);
+			});*/
 		}
 	});
 	

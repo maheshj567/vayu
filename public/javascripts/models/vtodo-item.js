@@ -1,7 +1,7 @@
 define([], function()
 {
-	//dodo item model
-	var DodoItem = Backbone.Model.extend({
+	//todo item model
+	var VtodoItem = Backbone.Model.extend({
 		
 		defaults : {
 			lid : function()
@@ -32,5 +32,5 @@ define([], function()
 		}
 	});
 	
-	return DodoItem;
+	return VtodoItem;
 });
