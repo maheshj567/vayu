@@ -8,27 +8,37 @@ Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/mah
 
 ## Current feature set
 
-1. Create boards
-2. Edit board names
-3. Create cards
-4. Edit cards
-5. Create/finish todo's
-6. Facebook login
-7. Uses MongoDB for storing data
+1. Create/edit boards
+2. Create/edit/delete cards
+3. Create/edit/delete/finish todos
+4. Login using Facebook
 
-## Technical details
+## Stack
 
 1. **Backbone.js** for app logic
-2. **Zurb Foundation** framework for UI
-3. **Express (Node.js)** for backend
-4. **MongoDB** for storing data
-5. **Redis** for session store
-6. **HTML5** localstorage APIs (not using from v0.4)
+2. **Requirejs** for AMD (Asynchronous Module Definition) style JS code
+3. **Zurb Foundation** framework for UI
+4. **HTML5** localstorage APIs (not using from v0.4)
+5. **Express (Node.js)** for backend
+6. **MongoDB** for storing data
+7. **Redis** for session store
+8. **Openshift by Redhat** for hosting 
+
+## Limitations
+
+Works properly in Chrome only
 
 ## Roadmap
 
 * New design
 * Search
+* User timezone support
+* Attach deadlines to todos
+* Reminders
+* Cards should be dealt as tags, instead of mutually exclusive containers
+* More views for todos - timeline, list
+* Proper build/deployment process
+* Mobile
 
 ## License
 
