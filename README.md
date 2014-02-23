@@ -18,14 +18,14 @@ Got any ideas? Or just say hi? Get in touch [@maheshj567](http://twitter.com/mah
 
 ## Technical details
 
-1. **HTML5** localstorage APIs (not using from v0.4)
-2. **Backbone.js** for app logic
-3. **Zurb Foundation** framework for UI
-4. **Express (Node.js)** added as server side framework (using just to serve static assets right now)
-5. **MongoDB** for storing data
-6. **Redis** for session store
+1. **Backbone.js** for app logic
+2. **Zurb Foundation** framework for UI
+3. **Express (Node.js)** for backend
+4. **MongoDB** for storing data
+5. **Redis** for session store
+6. **HTML5** localstorage APIs (not using from v0.4)
 
-### Roadmap
+## Roadmap
 
 * New design
 * Search
