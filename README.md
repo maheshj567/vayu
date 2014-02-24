@@ -2,13 +2,13 @@
 
 The vision for Vayu is to be THE platform for personal productivity.
 
-To kick off development, I chose to start with a simple todos application that'll eventually grow into the vision that I have for it. There are of course many apps that already do this and they are really good, though there are issues like some products are too simple, some focus on team work/project management and some others cater to specific aspects of day-to-day productivity.
+To kick off development, I chose to start with a simple todos application that'll eventually grow into the vision that I have. There are of course many apps that already do this and they are really good, though there are issues like some are too simple, some focus on team work/project management and some others cater to specific aspects of day-to-day productivity.
 
-**The Newton's apple question** - Can there be a productivity platform with the least possible learning curve, and with the ability to morph itself in context to provide the best utility/user experience possible? If yes, how?
+**The Newton's apple question** - What will a productivity platform that requires the least possible learning effort, and with the ability to morph itself in context to provide the best utility/user experience possible look/work like?
 
 The mission for Vayu is to be the answer to that question.
 
-Got any ideas? Or just say want to say hi? Get in touch [@maheshj567](http://twitter.com/maheshj567).
+Got any ideas? Or just want to say hi? Get in touch [@maheshj567](http://twitter.com/maheshj567).
 
 [Try out the app](http://vayu.io)
 
