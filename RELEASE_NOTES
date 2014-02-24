@@ -1,0 +1,41 @@
+### v0.5
+
+* Edit and delete todos
+* Edit and delete cards
+* Finished on 22 Feb, 14
+
+### v0.4
+
+* Upgraded to Foundation 5
+* MongoDB backend
+* Redis for session management
+* FB login integration
+* Server side integration
+* Finished on 14 Feb, '14'
+
+### v0.3
+
+* Changed name and hosting
+* Changed logo
+* added a lot of details to README
+* Finished on 12 Dec, '13
+
+### v0.2
+
+* using JSON.stringify to encode data instead of manually building the string - fixes bugs related to JSON encoding
+* edit board and card name
+* Finished on 23 Nov, '13
+
+### v0.1
+
+* Cards are added to the list at the top (rather) than at the bottom
+* Used require.js to create a modular application structure - separate views and models
+
+### v0
+
+* Add boards
+* Add cards
+* Add todo's
+* Reset everything
+* Store data in LocalStorage
+* Finished on 07 Oct, '12
