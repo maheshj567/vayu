@@ -56,9 +56,17 @@
 
 		<script src="javascripts/foundation/foundation.js"></script>
 		<script src="javascripts/foundation/foundation.reveal.js"></script>
+
+		<script src="javascripts/vendor/analytics.js"></script>
 		
 		<script>
             $(document).foundation();
+            analytics.initialize({
+			    'Google Analytics': {
+			      trackingId: 'UA-46603052-1',
+			      domain: 'vayu.io'
+			    }
+			});
         </script>
 	</body>
 </html>
