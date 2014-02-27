@@ -50,7 +50,7 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 				this.off("change");
 			});
 			var view = this.renderVtodoItem(newvtodo);
-            $(view.$el).addClass("new-dodo");
+            $(view.$el).addClass("new-vtodo");
             $(view.$el).addClass("gen_" + Math.round(Math.random()*10000));
 			$(view.$el).find(".vtodo-label").attr("contenteditable", true);
 
@@ -60,7 +60,7 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 		},
 
 		removeNewVtodoHolder : function() {
-			$(this.$el).find(".new-dodo").remove();
+			$(this.$el).find(".new-vtodo").remove();
 		},/*
 
 		editVtodo : function() {

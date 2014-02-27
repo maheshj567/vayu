@@ -2,7 +2,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 {
 	var VtodoItemView = Backbone.View.extend({
 		tagName : "li",
-		className : "dodo",
+		className : "vtodo",
 		template : _.template(VtodoTemplate),
 
 		events : {
@@ -11,7 +11,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 			"keydown .vtodo-label" : "handleVtodoKeyDown",
 			"click .vtodo-label" : "handleAFocusIn",
 			"focusout a" : "handleAFocusOut",
-            "click .dodo-more-btn" : "handleMore",
+            "click .vtodo-more-btn" : "handleMore",
             "click .edit-btn" : "handleEdit",
             "click .delete-btn" : "handleDelete"
 		},
@@ -24,17 +24,17 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 
 		render : function() {
 			this.$el.html(this.template(this.model.toJSON()));
-			$(this.$el).attr("id", "dodo_" + this.model.get("lid"));
+			$(this.$el).attr("id", "vtodo_" + this.model.get("lid"));
 
 			if (this.model.get("done") === true) {
-				$(this.$el).addClass("done-dodo");
+				$(this.$el).addClass("done-vtodo");
 			}
 
 			return this;
 		},
         
         handleMouseOver : function(e) {
-            if(!$(this.$el).hasClass("new-dodo"))
+            if(!$(this.$el).hasClass("new-vtodo"))
             {
                 $(this.$el).find(".edit-menu").show();
             }
@@ -46,7 +46,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 
 		handleAFocusIn : function(e) {
 			//TODO clean this up with a static const declaration of the "New todo" string
-			if ($(this.$el).hasClass("new-dodo")) {
+			if ($(this.$el).hasClass("new-vtodo")) {
                 if(e.currentTarget.innerHTML === "&lt;!-- New todo --&gt;")
                 {
                     e.currentTarget.innerHTML = "";
@@ -57,7 +57,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 				{
 					return false;
 				}
-                $(this.$el).toggleClass("done-dodo");
+                $(this.$el).toggleClass("done-vtodo");
 
                 var done = !this.model.get("done");
 
@@ -71,7 +71,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 		},
 
 		handleAFocusOut : function(e) {
-			if ($(this.$el).hasClass("new-dodo")) {
+			if ($(this.$el).hasClass("new-vtodo")) {
 				if (e.currentTarget.innerHTML === "") {
 					e.currentTarget.innerHTML = "&lt;!-- New todo --&gt;";
 				}
@@ -105,7 +105,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
         },
 
         handleVtodoKeyDown : function(e) {
-        	if ($(this.$el).hasClass("new-dodo")) {
+        	if ($(this.$el).hasClass("new-vtodo")) {
     			this.handleNewVtodo(e);
     		}else{
     			this.handleVtodoEdit(e);

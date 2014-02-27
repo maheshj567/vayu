@@ -33,8 +33,8 @@ define(["collections/vtodos",
 			this.$el.html(this.template(this.model.toJSON()));
 			$(this.$el).attr("id", "card_" + this.model.get("lid"));
 
-			var list = $(this.$el).find(".dodo-list")[0];
-			$(list).attr("id", "dodos_" + this.model.get("lid"));
+			var list = $(this.$el).find(".vtodo-list")[0];
+			$(list).attr("id", "vtodos_" + this.model.get("lid"));
 
 			return this;
 		},
@@ -78,7 +78,7 @@ define(["collections/vtodos",
 			this.vtodos_coll.reset(tempvtodos);
 			if (!this.vtodos_view) {
 				this.vtodos_view = new VtodosView({
-					el : $("#dodos_" + this.model.get("lid")),
+					el : $("#vtodos_" + this.model.get("lid")),
 					collection : this.vtodos_coll,
 					cardId : this.model.get("lid")
 				});

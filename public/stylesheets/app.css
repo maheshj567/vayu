@@ -268,12 +268,12 @@ input[type="text"]
 	position: relative;
 }
 
-.dodo-list
+.vtodo-list
 {
     margin-left: 0px;
 }
 
-.dodo-list li
+.vtodo-list li
 {
 	min-height: 50px;
 	background-image: url('../images/hor_sep.png');
@@ -282,22 +282,22 @@ input[type="text"]
 	margin: 0px 3px 0px 3px;
 }
 
-.dodo-list li:last-of-type
+.vtodo-list li:last-of-type
 {
 	background: none;
 }
 
-.dodo-list a:hover
+.vtodo-list a:hover
 {
 	color: #333333;
 }
 
-.dodo
+.vtodo
 {
     position: relative;
 }
 
-.dodo a[contenteditable]
+.vtodo a[contenteditable]
 {
     cursor: text;
 }
@@ -318,7 +318,7 @@ input[type="text"]
 	overflow: hidden;
 }
 
-.done-dodo .vtodo-label
+.done-vtodo .vtodo-label
 {
 	background-image: url('../images/tick.png');
 	background-repeat: no-repeat;
@@ -344,7 +344,7 @@ input[type="text"]
     right: 0px;
 }
 
-.new-dodo
+.new-vtodo
 {
 	text-align: center;
 	font-family: 'Lato', sans-serif;
