@@ -16,9 +16,9 @@ define(["collections/vtodos",
 		},
 
 		initialize : function() {
-			this.dodos_coll = new Vtodos();
-			this.dodos_coll.on("add", this.handleDodoAdded, this);
-			this.dodos_coll.on("remove", this.handleDodoRemoved, this);
+			this.vtodos_coll = new Vtodos();
+			this.vtodos_coll.on("add", this.handleVtodoAdded, this);
+			this.vtodos_coll.on("remove", this.handleVtodoRemoved, this);
 
 			this.model.on("destroy", function(){
 				$(this.$el).remove();
@@ -62,42 +62,42 @@ define(["collections/vtodos",
         	return false;
         },
 
-		renderDodos : function() {
-			var dodoids = this.model.get("dodos");
-			var tempdodos = [];
+		renderVtodos : function() {
+			var vtodoids = this.model.get("dodos");
+			var tempvtodos = [];
 			var item;
-			_.each(dodoids, function(lid) {
+			_.each(vtodoids, function(lid) {
 				item = _.find(window.vtodos_coll.models, function(item) {
 					return item.get("lid") == lid;
 				});
 				if (item) {
-					tempdodos.push(item);
+					tempvtodos.push(item);
 				}
 				item = null;
 			});
-			this.dodos_coll.reset(tempdodos);
-			if (!this.dodos_view) {
-				this.dodos_view = new VtodosView({
+			this.vtodos_coll.reset(tempvtodos);
+			if (!this.vtodos_view) {
+				this.vtodos_view = new VtodosView({
 					el : $("#dodos_" + this.model.get("lid")),
-					collection : this.dodos_coll,
+					collection : this.vtodos_coll,
 					cardId : this.model.get("lid")
 				});
 			}
 		},
 
-		handleDodoAdded : function() {
+		handleVtodoAdded : function() {
 			var item = arguments[0];
-			var dodos = this.model.get("dodos");
-			dodos.push(item.get("lid"));
+			var vtodos = this.model.get("dodos");
+			vtodos.push(item.get("lid"));
 
-			this.model.save({'dodos': dodos}, {success: function(model, response, options){
+			this.model.save({'dodos': vtodos}, {success: function(model, response, options){
 				console.log("success saving card changes...");
 			}, error: function(model, xhr, options){
 				console.log("error saving card changes...");
 			}}); 
 		},
 
-		handleDodoRemoved : function(model, collection, options) {
+		handleVtodoRemoved : function(model, collection, options) {
 			var vtodos = this.model.get("dodos");
 			vtodos = _.without(vtodos, model.get("lid"));
 

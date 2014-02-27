@@ -12,30 +12,30 @@ define(["vayu-prereqs",
 	// TODO: make storageManager asynchronous so that it is compatible with remoteStorageManager
 	var storageManager = {
 		getBoards : function() {
-			var dodo_boards = this.getBoardsFromLocal();
+			var vayu_boards = this.getBoardsFromLocal();
             //FIXME: had to do this check because localStorage.removeItem is setting the value as undefined!
-			if (dodo_boards === "undefined" || !dodo_boards) {
-				dodo_boards = new Boards();
+			if (vayu_boards === "undefined" || !vayu_boards) {
+				vayu_boards = new Boards();
 			} else {
-				dodo_boards = new Boards(JSON.parse(dodo_boards));
+				vayu_boards = new Boards(JSON.parse(vayu_boards));
 			}
-			return dodo_boards;
+			return vayu_boards;
 		},
 
 		getBoardsFromLocal : function() {
-			var dodo_boards = localStorage.getItem("dodo_boards");
-            if (dodo_boards) {
-				return dodo_boards;
+			var vayu_boards = localStorage.getItem("vayu_boards");
+            if (vayu_boards) {
+				return vayu_boards;
 			}
 			return null;
 		},
 
 		storeBoards : function() {
-			localStorage.setItem("dodo_boards", this.encodeBoardsForStorage());
+			localStorage.setItem("vayu_boards", this.encodeBoardsForStorage());
 		},
 
 		clearBoards : function() {
-			localStorage.removeItem("dodo_boards");
+			localStorage.removeItem("vayu_boards");
 		},
 
 		encodeBoardsForStorage : function() {
@@ -46,29 +46,29 @@ define(["vayu-prereqs",
 		},
 
 		getCards : function() {
-			var dodo_cards = this.getCardsFromLocal();
-			if (dodo_cards === "undefined" || !dodo_cards) {
-				dodo_cards = new Cards();
+			var vayu_cards = this.getCardsFromLocal();
+			if (vayu_cards === "undefined" || !vayu_cards) {
+				vayu_cards = new Cards();
 			} else {
-				dodo_cards = new Cards(JSON.parse(dodo_cards));
+				vayu_cards = new Cards(JSON.parse(vayu_cards));
 			}
-			return dodo_cards;
+			return vayu_cards;
 		},
 
 		getCardsFromLocal : function() {
-			var dodo_cards = localStorage.getItem("dodo_cards");
-			if (dodo_cards) {
-				return dodo_cards;
+			var vayu_cards = localStorage.getItem("vayu_cards");
+			if (vayu_cards) {
+				return vayu_cards;
 			}
 			return null;
 		},
 
 		storeCards : function() {
-			localStorage.setItem("dodo_cards", this.encodeCardsForStorage());
+			localStorage.setItem("vayu_cards", this.encodeCardsForStorage());
 		},
 
 		clearCards : function() {
-			localStorage.removeItem("dodo_cards");
+			localStorage.removeItem("vayu_cards");
 		},
 
 		encodeCardsForStorage : function() {
@@ -78,53 +78,53 @@ define(["vayu-prereqs",
 			return JSON.stringify(window.all_cards.models);
 		},
 
-		getDodos : function() {
-			var dodo_dodos = this.getDodosFromLocal();
-			if (dodo_dodos === "undefined" || !dodo_dodos) {
-				dodo_dodos = new Vtodos();
+		getVtodos : function() {
+			var vayu_todos = this.getVtodosFromLocal();
+			if (vayu_todos === "undefined" || !vayu_todos) {
+				vayu_todos = new Vtodos();
 			} else {
-				dodo_dodos = new Vtodos(JSON.parse(dodo_dodos));
+				vayu_todos = new Vtodos(JSON.parse(vayu_todos));
 			}
-			return dodo_dodos;
+			return vayu_todos;
 		},
 
-		getDodosFromLocal : function() {
-			var dodo_dodos = localStorage.getItem("dodo_dodos");
-			if (dodo_dodos) {
-				return dodo_dodos;
+		getVtodosFromLocal : function() {
+			var vayu_todos = localStorage.getItem("vayu_todos");
+			if (vayu_todos) {
+				return vayu_todos;
 			}
 			return null;
 		},
 
-		storeDodos : function() {
-			localStorage.setItem("dodo_dodos", this.encodeDodosForStorage());
+		storeVtodos : function() {
+			localStorage.setItem("vayu_todos", this.encodeVtodosForStorage());
 		},
 
-		clearDodos : function() {
-			localStorage.removeItem("dodo_dodos");
+		clearVtodos : function() {
+			localStorage.removeItem("vayu_todos");
 		},
 
-		encodeDodosForStorage : function() {
-			if (window.all_dodos === null) {
+		encodeVtodosForStorage : function() {
+			if (window.all_vtodos === null) {
 				return;
 			}
-			return JSON.stringify(window.all_dodos.models);
+			return JSON.stringify(window.all_vtodos.models);
 		},
 
 		saveAll : function() {
 			this.storeBoards();
 			this.storeCards();
-			this.storeDodos();
+			this.storeVtodos();
 		},
 
 		clearAll : function() {
 			this.clearBoards();
 			this.clearCards();
-			this.clearDodos();
+			this.clearVtodos();
 
 			window.boards_coll = null;
 			window.all_cards = null;
-			window.all_dodos = null;
+			window.all_vtodos = null;
 		}
 	};
 
@@ -161,7 +161,7 @@ define(["vayu-prereqs",
 			storageManager.saveAll();
 		});*/
 		
-		dodo_app = new VayuApp();
+		vayu_app = new VayuApp();
 
 		//TODO: see if we can remove these from window
 		window.boards_coll = new Boards();

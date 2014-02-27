@@ -1,6 +1,6 @@
 define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 {
-	var DodoItemView = Backbone.View.extend({
+	var VtodoItemView = Backbone.View.extend({
 		tagName : "li",
 		className : "dodo",
 		template : _.template(VtodoTemplate),
@@ -8,7 +8,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 		events : {
             "mouseover" : "handleMouseOver",
             "mouseout" : "handleMouseOut",
-			"keydown .vtodo-label" : "handleVTodoKeyDown",
+			"keydown .vtodo-label" : "handleVtodoKeyDown",
 			"click .vtodo-label" : "handleAFocusIn",
 			"focusout a" : "handleAFocusOut",
             "click .dodo-more-btn" : "handleMore",
@@ -104,11 +104,11 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
         	return false;
         },
 
-        handleVTodoKeyDown : function(e) {
+        handleVtodoKeyDown : function(e) {
         	if ($(this.$el).hasClass("new-dodo")) {
     			this.handleNewVtodo(e);
     		}else{
-    			this.handleVTodoEdit(e);
+    			this.handleVtodoEdit(e);
     		}
         },
 
@@ -131,7 +131,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 			}
 		},
 
-		handleVTodoEdit : function(e) {
+		handleVtodoEdit : function(e) {
 			var esc = event.which == 27;
 			var ent = event.which == 13;
 			if (esc) {
@@ -160,5 +160,5 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 		}
 	});
 	
-	return DodoItemView;
+	return VtodoItemView;
 });

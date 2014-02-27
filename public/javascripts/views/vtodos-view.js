@@ -1,6 +1,6 @@
 define(["views/vtodo-item-view"], function(VtodoItemView)
 {
-	var VTodosView = Backbone.View.extend({
+	var VtodosView = Backbone.View.extend({
 
 		cardId : "-",
 
@@ -67,8 +67,8 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 			
 		},*/
 
-		createVtodo : function(dodotitle) {
-			var vtodo = this.collection.createVtodo(dodotitle, window.dodo_app.get("selectedboard").get("lid"), this.cardId);
+		createVtodo : function(vtodotitle) {
+			var vtodo = this.collection.createVtodo(vtodotitle, window.vayu_app.get("selectedboard").get("lid"), this.cardId);
 			this.collection.add(vtodo);
 
 			/*var root = this;
@@ -78,5 +78,5 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 		}
 	});
 	
-	return VTodosView;
+	return VtodosView;
 });

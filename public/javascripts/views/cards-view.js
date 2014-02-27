@@ -11,7 +11,7 @@ define(["views/card-item-view"], function(CardItemView)
 			this.collection.on("reset", this.renderCards, this);
 			this.collection.on("add", this.addCard, this);
 
-			window.vtodos_coll.on("reset", this.renderVTodos, this);
+			window.vtodos_coll.on("reset", this.renderVtodos, this);
 
 			this.renderCards();
 		},
@@ -26,11 +26,11 @@ define(["views/card-item-view"], function(CardItemView)
 				cardViews.push(view);
 			}, this);
 
-			this.renderVTodos();
+			this.renderVtodos();
 		},
 
 		addCard : function() {
-			this.renderCardItem(arguments[0], true).renderDodos();
+			this.renderCardItem(arguments[0], true).renderVtodos();
 			refreshDimensions();
 		},
 
@@ -50,10 +50,10 @@ define(["views/card-item-view"], function(CardItemView)
 			});
 		},
 
-		renderVTodos : function() {
+		renderVtodos : function() {
 			for(var i=0; i < cardViews.length; i++)
 			{
-				cardViews[i].renderDodos();
+				cardViews[i].renderVtodos();
 			}
 		}
 	});
