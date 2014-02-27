@@ -11,7 +11,7 @@ define([], function()
 			}(),
 			bid : "",
 			name : "-",
-			dodos : []
+			vtodos : []
 		},
 
 		urlRoot : function() {
@@ -22,8 +22,10 @@ define([], function()
 
 			response.id = response._id;
 		    response.name = response.n;
+		    response.vtodos = response.dodos;
 
 		    delete response.n;
+		    delete response.dodos;
 
 		    return response;
 		}

@@ -63,7 +63,7 @@ define(["collections/vtodos",
         },
 
 		renderVtodos : function() {
-			var vtodoids = this.model.get("dodos");
+			var vtodoids = this.model.get("vtodos");
 			var tempvtodos = [];
 			var item;
 			_.each(vtodoids, function(lid) {
@@ -87,10 +87,10 @@ define(["collections/vtodos",
 
 		handleVtodoAdded : function() {
 			var item = arguments[0];
-			var vtodos = this.model.get("dodos");
+			var vtodos = this.model.get("vtodos");
 			vtodos.push(item.get("lid"));
 
-			this.model.save({'dodos': vtodos}, {success: function(model, response, options){
+			this.model.save({'vtodos': vtodos}, {success: function(model, response, options){
 				console.log("success saving card changes...");
 			}, error: function(model, xhr, options){
 				console.log("error saving card changes...");
@@ -98,10 +98,10 @@ define(["collections/vtodos",
 		},
 
 		handleVtodoRemoved : function(model, collection, options) {
-			var vtodos = this.model.get("dodos");
+			var vtodos = this.model.get("vtodos");
 			vtodos = _.without(vtodos, model.get("lid"));
 
-			this.model.save({'dodos': vtodos}, {success: function(mod, response, options){
+			this.model.save({'vtodos': vtodos}, {success: function(mod, response, options){
 				console.log("success saving card changes...");
 			}, error: function(model, xhr, options){
 				console.log("error saving card changes...");
