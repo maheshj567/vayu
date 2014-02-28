@@ -1,6 +1,7 @@
 /**
  * Module dependencies.
  */
+require('newrelic')
 
 var express = require('express'),
     hbs = require('hbs'),
