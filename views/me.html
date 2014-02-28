@@ -51,5 +51,12 @@
 <div id="cards"></div>
 
 {{#extend "scripts"}}
-    <script data-main="javascripts/main.js" src="javascripts/require.js"></script>
+    <script data-main="javascripts/main.js" src="javascripts/vendor/require.js"></script>
+    <script type="text/javascript">
+        requirejs.config({
+          paths: {
+            "text": "vendor/text"
+          }
+    });
+    </script>
 {{/extend}}

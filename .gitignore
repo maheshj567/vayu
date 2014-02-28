@@ -5,3 +5,4 @@ public/images/Thumbs.db
 public/Thumbs.db
 public/javascripts/servicesconfig.js
 newrelic.js
+newrelic_agent.log
