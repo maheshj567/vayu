@@ -69,7 +69,7 @@ input[type="text"]
 	height: 76px;
 	background-image: url('../images/toolbarbg.png');
 	background-repeat: no-repeat;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	margin-top: -11px;
     margin-left: 0px;
 }
@@ -195,7 +195,7 @@ input[type="text"]
 	background-repeat: no-repeat;
 	background-position: 0px 8px;
 	color: #646464;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
 	font-weight: 300;
 	padding: 3px 0px 0px 25px;	
@@ -203,7 +203,7 @@ input[type="text"]
 
 #card-form a
 {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #646464;
 	font-weight: 300;
 	margin-left: 10px;
@@ -271,6 +271,7 @@ input[type="text"]
 .vtodo-list
 {
     margin-left: 0px;
+    margin-bottom: 10px;
 }
 
 .vtodo-list li
@@ -297,9 +298,11 @@ input[type="text"]
     position: relative;
 }
 
-.vtodo a[contenteditable]
+.vtodo-label[contenteditable]
 {
     cursor: text;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .vtodo-label[contenteditable]:hover, .vtodo-label[contenteditable]:focus {
@@ -347,7 +350,7 @@ input[type="text"]
 .new-vtodo
 {
 	text-align: center;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 300 !important;
 }
 
