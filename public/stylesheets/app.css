@@ -121,7 +121,7 @@ input[type="text"]
 
 #boards-list a
 {
-	font-size: 24px;
+	font-size: 20px;
 	color: #FCFCFC;
 	display: block;
 	text-overflow: ellipsis;
@@ -177,9 +177,10 @@ input[type="text"]
 #right-toolbar p
 {
 	display: inline-block;
-	padding: 12px 0px 0px 0px;
+	padding: 15px 0px 0px 0px;
 	font-family: 'Anonymous Pro', sans-serif;
-	font-size: 24px;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 #add-card-btn
