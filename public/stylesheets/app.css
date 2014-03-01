@@ -13,7 +13,7 @@ body
 {
 	background-image: url('../images/noisy_grid.png');
 	background-attachment: fixed;
-	color: #646464;
+	color: #606060;
 	font-size: 24px;
 	overflow-x: hidden;
 	min-width: 1024px;
@@ -121,7 +121,7 @@ input[type="text"]
 
 #boards-list a
 {
-	font-size: 30px;
+	font-size: 24px;
 	color: #FCFCFC;
 	display: block;
 	text-overflow: ellipsis;
@@ -177,9 +177,9 @@ input[type="text"]
 #right-toolbar p
 {
 	display: inline-block;
-	padding: 8px 0px 0px 0px;
+	padding: 12px 0px 0px 0px;
 	font-family: 'Anonymous Pro', sans-serif;
-	font-size: 30px;
+	font-size: 24px;
 }
 
 #add-card-btn
@@ -247,10 +247,10 @@ input[type="text"]
 
 .card-title
 {
-	font-family: Dosis, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #FCFCFC;
-	padding: 10px 10px 0px 10px;
-	font-size: 30px;
+	padding: 11px 10px 0px 10px;
+	font-size: 22px;
 	text-align: center;
 	width: 100%;
 	border-top-left-radius: 5px;
@@ -279,7 +279,7 @@ input[type="text"]
 	background-image: url('../images/hor_sep.png');
 	background-repeat: repeat-x;
 	background-position: bottom;
-	margin: 0px 3px 0px 3px;
+	margin: 0px 1px 0px 1px;
 }
 
 .vtodo-list li:last-of-type
@@ -310,8 +310,8 @@ input[type="text"]
 .vtodo-label
 {
     width: 90%;
-    font-family: Lato, sans-serif;
-	font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
 	color: #646464;
 	display: block;
 	padding: 10px 0px 0px 10px;
@@ -323,7 +323,7 @@ input[type="text"]
 	background-image: url('../images/tick.png');
 	background-repeat: no-repeat;
 	background-position: left bottom;
-	padding-left: 35px;
+	padding-left: 36px;
 	color: #888888;
 	text-decoration: line-through;
 	overflow: hidden;
