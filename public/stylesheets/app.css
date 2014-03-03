@@ -54,7 +54,7 @@ input[type="text"]
 
 #logo
 {
-	display: block;
+	display: none;
 	width: 300px;
 	height: 85px;
 	background-image: url('../images/logo.png');
@@ -62,46 +62,36 @@ input[type="text"]
 	background-position: center;
 }
 
-#toolbar
-{
-	display: block;
-	width: 300px;
-	height: 76px;
-	background-image: url('../images/toolbarbg.png');
-	background-repeat: no-repeat;
-	font-family: 'Open Sans', sans-serif;
-	margin-top: -11px;
-    margin-left: 0px;
-}
-
-#toolbar li
-{
-	font-size: 24px;
-	font-weight: 300;
-	display: inline-block;
-	margin: 15px 15px 0px 30px; 
-}
-
-#toolbar a
-{
-	color: #646464;
-}
-
-#toolbar a:hover
-{
-	color: #666666;
-}
-
 #add-btn
 {
-	background-image: url('../images/add_icon.png');
 	background-repeat: no-repeat;
-	background-position: 0px 8px;
-	padding-left: 25px;	
+	background-position: 0px 7px;
+	padding-left: 25px;
+	padding-bottom: 20px;
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	margin: 20px 0px;
+	background: url('../images/dashed_sep.png') repeat-x bottom;
+}
+
+#add-btn img
+{
+	margin-top: -3px;
+}
+
+#add-btn a
+{
+	color: #FFF;
+}
+
+#add-btn .box
+{
+	left: -20px !important;
 }
 
 #reset-btn
 {
+	display: none !important;
 	background-image: url('../images/refresh_icon.png');
 	background-repeat: no-repeat;
 	background-position: 0px 8px;
@@ -110,13 +100,13 @@ input[type="text"]
 
 #boards-list
 {
-    margin-left: 0px;
+    margin-left: -5px;
 }
 
 #boards-list li
 {
 	font-family: 'Anonymous Pro', sans-serif;
-	padding: 0px 0px 0px 30px;
+	padding: 0px 0px 0px 24px;
 }
 
 #boards-list a
@@ -192,7 +182,7 @@ input[type="text"]
 
 #add-card-btn .open
 {
-	background-image: url('../images/add_icon.png');
+	background-image: url('../images/add_icon_grey.png');
 	background-repeat: no-repeat;
 	background-position: 0px 8px;
 	color: #646464;

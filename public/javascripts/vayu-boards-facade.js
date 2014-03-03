@@ -143,16 +143,6 @@ define(["vayu-prereqs",
 			'position' : 'br'
 		});
 
-		/*$('#reset-btn').click(function() {
-            var res = confirm("This will all your data. Are you sure?");
-            if (res === true)
-            {
-                storageManager.clearAll();
-                window.location.reload();
-            }
-			return false;
-		});*/
-
 		$(window).resize(function() {
 			refreshDimensions();
 		});

@@ -3,27 +3,23 @@
 
 <aside id="sidebar">
     <div id="logo"></div>
-    <ul id="toolbar">
-        <li id="add-btn">
-            <a class="open" href="#">Add</a>
-            <div class='collapse'>
-                <div class='box'>
-                    <div class='arrow'></div>
-                    <div class='arrow-border'></div>
-                    <form id="board-form" class="popbox-content">
-                        <div class="input">
-                            <input type="text" name="cm-name" id="board-name" placeholder="Give your board a name" />
-                        </div>
-                        <input type="submit" value="Hit it!" class="secondary button" />
-                        <a href="#" class="close">Cancel</a>
-                    </form>
-                </div>
+    <div id="add-btn">
+        <img src="images/add_icon.png">
+        <a class="open" href="#">Add board</a>
+        <div class='collapse'>
+            <div class='box'>
+                <div class='arrow'></div>
+                <div class='arrow-border'></div>
+                <form id="board-form" class="popbox-content">
+                    <div class="input">
+                        <input type="text" name="cm-name" id="board-name" placeholder="Give your board a name" />
+                    </div>
+                    <input type="submit" value="Hit it!" class="secondary button" />
+                    <a href="#" class="close">Cancel</a>
+                </form>
             </div>
-        </li>
-        <li id="reset-btn">
-            <a href="/reset">Reset</a>
-        </li>
-    </ul>
+        </div>
+    </div>
     <nav id="boards-nav">
         <ul id="boards-list"></ul>
     </nav>
