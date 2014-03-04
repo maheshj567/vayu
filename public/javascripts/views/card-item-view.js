@@ -65,16 +65,23 @@ define(["collections/vtodos",
 		renderVtodos : function() {
 			var vtodoids = this.model.get("vtodos");
 			var tempvtodos = [];
+			var donevtodos = [];
 			var item;
 			_.each(vtodoids, function(lid) {
 				item = _.find(window.vtodos_coll.models, function(item) {
 					return item.get("lid") == lid;
 				});
 				if (item) {
-					tempvtodos.push(item);
+					if(item.get('done') == true)
+					{
+						donevtodos.push(item);
+					}else{
+						tempvtodos.push(item);
+					}
 				}
 				item = null;
 			});
+			tempvtodos = tempvtodos.concat(donevtodos);
 			this.vtodos_coll.reset(tempvtodos);
 			if (!this.vtodos_view) {
 				this.vtodos_view = new VtodosView({
