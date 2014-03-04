@@ -58,7 +58,7 @@ define(["views/card-item-view"], function(CardItemView)
 
 			window.refreshDimensions();
 
-			$('.done-vtodo').css("display", "none");
+			// $('.done-vtodo').css("display", "none");
 		}
 	});
 	
