@@ -165,9 +165,8 @@ define(["vayu-prereqs",
 
 	var refreshDimensions = function() {
 		//TODO: better way?
-		$("#right-toolbar").css('width', 10);
-		$("#right-toolbar").css('width', $(document).width() - 452);
-		$(".grid-bg").css('width', $(document).width() - 300);
+		$("#toolbar").css('width', $(document).width() - 310);
+		$(".grid-bg").css('width', $(document).width() - 341);
 		$(".grid-bg").addClass('container-shadow');
 	};
 	

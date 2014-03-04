@@ -49,10 +49,11 @@ input[type="text"]
 
 #sidebar
 {
-	width: 300px;
+	width: 255px;
 	height: 100%;
 	background-repeat: repeat-y;
 	position: fixed;
+	z-index: 1000;
 }
 
 #logo
@@ -144,9 +145,11 @@ input[type="text"]
 {
 	background-image: url('../images/noisy_grid.png');
 	height: 100%;
-	margin-left: 300px;
+	margin-top: 50px;
+	margin-left: 270px;
 	overflow: visible;
 	position: fixed;
+	z-index: 2;
 }
 
 .container-shadow
@@ -154,59 +157,119 @@ input[type="text"]
 	box-shadow: 0px 0px 14px 4px rgba(0,0,0,0.15);
 }
 
-#paper-fold
+#toolbar-left
 {
-	background-image: url('../images/paper_fold.png');
+	background-image: url('../images/toolbar_left.png');
 	background-repeat: no-repeat;
 	display: block;
-	width: 122px;
-	height: 133px;
+	width: 36px;
+	height: 82px;
 	position: fixed;
-	left: 330px;
-	top: 18px;
+	left: 247px;
+	top: 26px;
 	z-index: 1;
-	visibility: hidden;
 }
 
-#right-toolbar
+#toolbar-right
+{
+	background-image: url('../images/toolbar_right.png');
+	background-repeat: no-repeat;
+	display: block;
+	width: 36px;
+	height: 82px;
+	position: fixed;
+	right: 47px;
+	top: 26px;
+	z-index: 1;
+}
+
+#top-cover
+{
+	position: absolute;
+	width: 100%;
+	height: 24px;
+	top: -14px;
+	background-image: url('../images/blue_bg.png');
+	background-repeat: repeat-x;
+}
+
+#toolbar
 {
 	background-image: url('../images/right_toolbar_bg.png');
 	background-repeat: repeat-x;
 	display: block;
-	height: 62px;
+	height: 76px;
 	position: fixed;
-	left: 452px;
-	top: 18px;
-	z-index: 1;
+	left: 255px;
+	top: 14px;
+	z-index: 3;
 	visibility: hidden;
 }
 
-#right-toolbar p
+.progress-bar
 {
-	display: inline-block;
-	padding: 15px 0px 0px 0px;
+	background-color: #e45858;
+	width: 100%;
+	position: absolute;
+	height: 4px;
+	display: block;
+	top: 8px;
+}
+
+#selected-board
+{
 	font-family: 'Anonymous Pro', sans-serif;
 	font-size: 20px;
 	font-weight: bold;
+	position: absolute;
+	right: 20px;
+	top: 23px;
+}
+
+#right-toolbar
+{
+	position: fixed;
+	right: 0px;
+	height: 100%;
+	width: 70px;
+	top: 110px;
+	text-align: center;
+	z-index: 100;
+}
+
+.right-toolbar-icon
+{
+	width: 36px;
+	height: 36px;
+	display: inline-block;
 }
 
 #add-card-btn
 {
-	display: inline-block;
-	float: right;
-	margin: 20px 20px 0px 0px;
+	
 }
 
 #add-card-btn .open
 {
-	background-image: url('../images/add_icon_grey.png');
+	background-image: url('../images/add_card_btn.png');
 	background-repeat: no-repeat;
-	background-position: 0px 8px;
-	color: #646464;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 24px;
-	font-weight: 300;
-	padding: 3px 0px 0px 25px;	
+	display: inline-block;
+}
+
+#add-card-btn .arrow, #add-card-btn .arrow-border
+{
+	margin-left: -20px;
+}
+
+#add-card-btn .box
+{
+	margin-top: -4px;
+	margin-left: 23px;
+}
+
+#add-card-btn input[type='submit']
+{
+	margin-left: -85px;
 }
 
 #card-form a
@@ -221,10 +284,10 @@ input[type="text"]
 {
 	display: inline-block;
 	position: absolute;
-	padding: 0px 0px 0px 400px;
+	padding: 0px 0px 0px 300px;
 	width: 99%;
 	left: 0px;
-	top: 150px;
+	top: 110px;
 	
 	-webkit-column-count: 4;
 	-webkit-column-gap: 20px;
@@ -235,6 +298,8 @@ input[type="text"]
 	column-count: 4;
 	column-gap: 20px;
 	column-fill: auto;
+
+	z-index: 2;
 }
 
 .card

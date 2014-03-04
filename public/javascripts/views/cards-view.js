@@ -55,6 +55,8 @@ define(["views/card-item-view"], function(CardItemView)
 			{
 				cardViews[i].renderVtodos();
 			}
+
+			window.refreshDimensions();
 		}
 	});
 	

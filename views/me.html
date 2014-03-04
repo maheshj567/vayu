@@ -4,27 +4,6 @@
 <div class='grid-bg'>
     
 </div>
-<div id="paper-fold"></div>
-<div id="right-toolbar">
-    <p id="selected-board"></p>
-    <div id="add-card-btn">
-        <a class="open" href="#">Add Card</a>
-        <div class='collapse'>
-            <div class='box'>
-                <div class='arrow'></div>
-                <div class='arrow-border'></div>
-                <form id="card-form" class="popbox-content">
-                    <div class="input">
-                        <input type="text" name="cm-name" id="card-name" placeholder="Give your card a name" />
-                    </div>
-                    <input type="submit" value="Hit it!" class="secondary button" />
-                    <a href="#" class="close">Cancel</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="cards"></div>
 <aside id="sidebar">
     <div id="logo"></div>
     <div id="add-btn">
@@ -48,7 +27,32 @@
         <ul id="boards-list"></ul>
     </nav>
 </aside>
-
+<div id="toolbar-left"></div>
+<div id="toolbar-right"></div>
+<div id="toolbar">
+    <div id="top-cover"></div>
+    <div class='progress-bar'></div>
+    <p id="selected-board"></p>
+</div>
+<div id="cards"></div>
+<div id="right-toolbar">
+    <div id="add-card-btn">
+        <a class="open right-toolbar-icon" href="#"></a>
+        <div class='collapse'>
+            <div class='box'>
+                <div class='arrow'></div>
+                <div class='arrow-border'></div>
+                <form id="card-form" class="popbox-content">
+                    <div class="input">
+                        <input type="text" name="cm-name" id="card-name" placeholder="Give your card a name" />
+                    </div>
+                    <input type="submit" value="Hit it!" class="secondary button" />
+                    <a href="#" class="close">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {{#extend "scripts"}}
     <script data-main="javascripts/main.js" src="javascripts/vendor/require.js"></script>
     <script type="text/javascript">

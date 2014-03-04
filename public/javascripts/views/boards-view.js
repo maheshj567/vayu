@@ -25,8 +25,8 @@ define(["views/board-item-view",
 
 			if (this.collection.length != 0) {
 				//TODO clean this up
-				$("#right-toolbar").css("visibility", "visible");
-				$("#paper-fold").css("visibility", "visible");
+				$("#toolbar").css("visibility", "visible");
+				// $("#paper-fold").css("visibility", "visible");
 			}
 
 			_.each(boards_coll.models, function(item) {
@@ -48,14 +48,14 @@ define(["views/board-item-view",
 		addBoard : function() {
 			this.renderBoardItem(arguments[0], true);
 
-			$("#right-toolbar").css("visibility", "visible");
-			$("#paper-fold").css("visibility", "visible");
+			$("#toolbar").css("visibility", "visible");
+			// $("#paper-fold").css("visibility", "visible");
 		},
 
 		removeBoard : function() {
 			if (this.collection.length == 0) {
-				$("#right-toolbar").css("visibility", "hidden");
-				$("#paper-fold").css("visibility", "hidden");
+				$("#toolbar").css("visibility", "hidden");
+				// $("#paper-fold").css("visibility", "hidden");
 			}
 		},
 
