@@ -25,8 +25,7 @@ define(["views/board-item-view",
 
 			if (this.collection.length != 0) {
 				//TODO clean this up
-				$("#toolbar").css("visibility", "visible");
-				// $("#paper-fold").css("visibility", "visible");
+				$("#add-card-btn").css("display", "inherit");
 			}
 
 			_.each(boards_coll.models, function(item) {
@@ -47,15 +46,13 @@ define(["views/board-item-view",
 
 		addBoard : function() {
 			this.renderBoardItem(arguments[0], true);
-
-			$("#toolbar").css("visibility", "visible");
-			// $("#paper-fold").css("visibility", "visible");
+			$("#add-card-btn").css("display", "inherit");
 		},
 
 		removeBoard : function() {
+			//TODO: check this when remove board functionality is developed
 			if (this.collection.length == 0) {
-				$("#toolbar").css("visibility", "hidden");
-				// $("#paper-fold").css("visibility", "hidden");
+				$("#add-card-btn").css("display", "none");
 			}
 		},
 

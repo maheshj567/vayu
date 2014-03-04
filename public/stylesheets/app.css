@@ -203,7 +203,6 @@ input[type="text"]
 	left: 255px;
 	top: 14px;
 	z-index: 3;
-	visibility: hidden;
 }
 
 .progress-bar
@@ -246,7 +245,7 @@ input[type="text"]
 
 #add-card-btn
 {
-	
+	display: none;	
 }
 
 #add-card-btn .open
