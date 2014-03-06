@@ -147,6 +147,21 @@ define(["vayu-prereqs",
 			refreshDimensions();
 		});
 
+		$("#logo-small").mouseenter(function()
+		{
+			//FIXME: absolute value being used. Won't work for responsive layout
+			$("#logo-small").animate({
+				'padding-left': 25
+			}, 150)
+		});
+
+		$("#logo-small").mouseleave(function()
+		{
+			$("#logo-small").animate({
+				'padding-left': 250
+			}, 150)
+		});
+
 		/*$(window).unload(function() {
 			storageManager.saveAll();
 		});*/

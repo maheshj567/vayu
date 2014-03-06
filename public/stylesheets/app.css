@@ -50,10 +50,24 @@ input[type="text"]
 #sidebar
 {
 	width: 255px;
-	height: 100%;
 	background-repeat: repeat-y;
 	position: fixed;
 	z-index: 1000;
+}
+
+#logo-small
+{
+	position: fixed;
+	bottom: 10px;
+	padding-left: 250px;
+	color: #FFF;
+	font-size: 14px;
+	text-align: center;
+}
+
+#logo-small a
+{
+	color: #FFF;
 }
 
 #logo
@@ -111,6 +125,7 @@ input[type="text"]
 {
 	font-family: 'Anonymous Pro', sans-serif;
 	padding: 0px 0px 0px 24px;
+	margin-bottom: 8px;
 }
 
 #boards-list a
