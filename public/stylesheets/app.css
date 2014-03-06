@@ -325,6 +325,7 @@ input[type="text"]
 	-moz-box-shadow: 0px 1px 5px #CCCCCC;
 	-webkit-box-shadow: 0px 1px 5px #CCCCCC;
 	margin-bottom: 50px;
+	position: relative;
 	
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
@@ -473,6 +474,21 @@ input[type="text"]
     padding: 10px;
     top: 10px;
     left: 40px;
+}
+
+.content-input
+{
+	position: absolute;
+	z-index: -1;
+	color: #FFF !important;
+	border: none !important;
+	background: none !important;
+}
+
+.card-name-input
+{
+	height: 50px !important;
+	top: 0px;
 }
 
 /* iPads (portrait and landscape) ----------- */

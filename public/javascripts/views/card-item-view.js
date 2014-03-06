@@ -8,9 +8,9 @@ define(["collections/vtodos",
 		template : _.template(CardTemplate),
         
         events : {
-			"keydown .card-title" : "handleCardNameEdit",
-			"mouseover .card-title" : "handleMouseOver",
-			"mouseout .card-title" : "handleMouseOut",
+			"keydown .card-name-input" : "handleCardNameEdit",
+			"mouseenter" : "handleMouseOver",
+			"mouseleave" : "handleMouseOut",
 			"click .edit-btn" : "handleEdit",
             "click .delete-btn" : "handleDelete"
 		},
@@ -48,9 +48,8 @@ define(["collections/vtodos",
         },
 
         handleEdit : function(e) {
-        	$(".card-title", this.$el).attr("contenteditable", true);
-        	$(".card-title", this.$el).focus();
-            return false;
+        	this.showEditForm();
+        	return false;
         },
 
         handleDelete : function(e) {
@@ -118,28 +117,41 @@ define(["collections/vtodos",
         handleCardNameEdit : function(e) {
             var esc = event.which == 27;
 			var ent = event.which == 13;
-			if (esc) {
-				// restore state
-				document.execCommand('undo');
+			if(esc)
+			{
+				$(".card-name-input", this.$el).val($(".card-name-input", this.$el).prop('defaultValue'));
 			} else if (ent) {
-				var name = $(e.currentTarget).html();
+        		var name = $(e.currentTarget).val();
                 if(name !== '')
                 {
+                	$('.card-title').text(name);
                     this.model.save({'name': name}, {success: function(model, response, options){
 						console.log("success editing card name...");
 					}, error: function(model, xhr, options){
 						console.log("error editing card name...");
 					}});
                 }else{
-                    document.execCommand('undo');
+
                 }
 			}
             
             if(esc || ent)
             {
+            	this.hideEditForm();
                 e.currentTarget.blur();
                 event.preventDefault();
             }
+		},
+
+		showEditForm: function() {
+			$(".card-name-input", this.$el).css("z-index", 'auto');
+			$(".card-title", this.$el).css("color", '#646464');
+        	$(".card-name-input", this.$el).focus();
+		},
+
+		hideEditForm: function() {
+			$(".card-name-input", this.$el).css("z-index", '-1');
+			$(".card-title", this.$el).css("color", '#FCFCFC');
 		}
 	});
 	
