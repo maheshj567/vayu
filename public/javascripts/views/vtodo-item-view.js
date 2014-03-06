@@ -121,6 +121,11 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 				e.currentTarget.blur();
 			} else if (ent) {
 				var title = $(e.currentTarget).html();
+				if(title.trim() === '')
+				{
+					event.preventDefault();
+					return;
+				}
 				this.model.set("title", title);
                 
                 // document.execCommand('undo');
