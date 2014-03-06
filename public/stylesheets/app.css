@@ -298,9 +298,8 @@ input[type="text"]
 {
 	display: inline-block;
 	position: absolute;
-	padding: 0px 0px 0px 300px;
 	width: 99%;
-	left: 0px;
+	left: 300px;
 	top: 110px;
 	
 	-webkit-column-count: 4;

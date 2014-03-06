@@ -180,6 +180,7 @@ define(["vayu-prereqs",
 
 	var refreshDimensions = function() {
 		//TODO: better way?
+		$("#cards").css('width', $(document).width() - 300)
 		$("#toolbar").css('width', $(document).width() - 310);
 		$(".grid-bg").css('width', $(document).width() - 341);
 		$(".grid-bg").addClass('container-shadow');
