@@ -9,8 +9,10 @@ define(["collections/vtodos",
         
         events : {
 			"keydown .card-name-input" : "handleCardNameEdit",
-			"mouseenter" : "handleMouseOver",
-			"mouseleave" : "handleMouseOut",
+			"mouseenter .card-title" : "handleMouseOver",
+			"mouseleave .card-title" : "handleMouseOut",
+			"mouseenter .edit-menu" : "handleMouseOver",
+			"mouseleave .edit-menu" : "handleMouseOut",
 			"click .edit-btn" : "handleEdit",
             "click .delete-btn" : "handleDelete"
 		},
@@ -124,7 +126,7 @@ define(["collections/vtodos",
         		var name = $(e.currentTarget).val();
                 if(name !== '')
                 {
-                	$('.card-title').text(name);
+                	$('.card-title', this.$el).text(name);
                     this.model.save({'name': name}, {success: function(model, response, options){
 						console.log("success editing card name...");
 					}, error: function(model, xhr, options){
