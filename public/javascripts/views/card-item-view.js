@@ -11,8 +11,8 @@ define(["collections/vtodos",
 			"keydown .card-name-input" : "handleCardNameEdit",
 			"mouseenter .card-title" : "handleMouseOver",
 			"mouseleave .card-title" : "handleMouseOut",
-			"mouseenter .edit-menu" : "handleMouseOver",
-			"mouseleave .edit-menu" : "handleMouseOut",
+			"mouseenter .edit-card-menu" : "handleMouseOver",
+			"mouseleave .edit-card-menu" : "handleMouseOut",
 			"click .edit-btn" : "handleEdit",
             "click .delete-btn" : "handleDelete"
 		},
@@ -42,11 +42,11 @@ define(["collections/vtodos",
 		},
 
 		handleMouseOver : function(e) {
-            $(".edit-menu", this.$el).first().show();
+            $(".edit-card-menu", this.$el).first().show();
         },
         
         handleMouseOut : function(e) {
-            $(this.$el).find(".edit-menu").first().hide();
+            $(this.$el).find(".edit-card-menu").first().hide();
         },
 
         handleEdit : function(e) {

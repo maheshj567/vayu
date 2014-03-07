@@ -440,7 +440,7 @@ input[type="text"]
 	font-weight: 300 !important;
 }
 
-.edit-menu
+.edit-menu, .edit-card-menu
 {
 	background-image: url('../images/edit_bg.png');
     background-repeat: no-repeat;
