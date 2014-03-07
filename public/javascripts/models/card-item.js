@@ -11,7 +11,7 @@ define([], function()
 			}(),
 			bid : "",
 			name : "-",
-			dodos : []
+			vtodos : []
 		},
 
 		urlRoot : function() {

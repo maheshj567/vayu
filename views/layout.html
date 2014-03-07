@@ -9,19 +9,35 @@
 	<!--<![endif]-->
 	<head>
 		<meta charset="utf-8" />
+		<meta name="application-name" content="Vayu"/> 
+	    <meta name="description" content="Get things done!"/> 
 
 		<!-- Set the viewport width to device width for mobile -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<title>Vayu - {{title}}</title>
 
-		<!-- Included CSS Files (Uncompressed) -->
-		<link rel="stylesheet" href="stylesheets/foundation.css">
+		<meta name="application-url" content="http://vayu.io" /> 
 
-		<!-- Included CSS Files (Compressed) -->
-		<link href='http://fonts.googleapis.com/css?family=Dosis:500|Lato:300,400|Anonymous+Pro|' rel='stylesheet prefetch' type='text/css'>
-		<link rel="stylesheet" href="stylesheets/popbox.css"/>
-		<link rel="stylesheet" href="stylesheets/app.css">
+	    <link rel="icon" sizes="32x32" href="images/icon_32.png" /> 
+	    <link rel="icon" sizes="48x48" href="images/icon_48.png" />
+	    <link rel="icon" sizes="128x128" href="images/icon_128.png" />
+	    <link rel="icon" sizes="196x196" href="images/icon_196.png" />
+
+	    <link rel="shortcut icon" sizes="196x196" href="images/icon_196.png" />
+		<link rel="shortcut icon" sizes="128x128" href="images/icon_128.png" />
+		<link rel="apple-touch-icon" sizes="128x128" href="images/icon_128.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="128x128" href="images/icon_128.png" />
+
+		<link rel="stylesheet" href="stylesheets/normalize.css" />
+		<link rel="stylesheet" href="stylesheets/foundation.css" />
+
+		<!-- using rel="prefetch" to solve issue with CORS error for webfonts when using prefixfree -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans|Anonymous+Pro:400,700|' rel='stylesheet prefetch' type='text/css'>
+		<link rel="stylesheet" href="stylesheets/popbox.css" />
+		<link rel="stylesheet" href="stylesheets/app.css" />
+
+		{{{block "stylesheets"}}}
 
 		<script src="javascripts/vendor/prefixfree.min.js"></script>
 		<script src="javascripts/vendor/modernizr.js"></script>
@@ -30,8 +46,19 @@
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		
-		{{{block "stylesheets"}}}
+
+		<script>
+			var _prum = [['id', '{{tpConfig.pingdomID}}'],
+			             ['mark', 'firstbyte', (new Date()).getTime()]];
+			(function() {
+			    var s = document.getElementsByTagName('script')[0]
+			      , p = document.createElement('script');
+			    p.async = 'async';
+			    p.src = '//rum-static.pingdom.net/prum.min.js';
+			    s.parentNode.insertBefore(p, s);
+			})();
+		</script>
+
 	</head>
 	<body>
 		{{{body}}}
@@ -40,18 +67,24 @@
 		<script src="javascripts/vendor/fastclick.js"></script>
 		
 		<script src="javascripts/foundation/foundation.js"></script>
-		<script src="javascripts/underscore.js"></script>
-		<script src="javascripts/backbone.js"></script>
-		<script src="javascripts/popbox.js"></script>
-		<script src="javascripts/data.js"></script>
+		<script src="javascripts/foundation/foundation.reveal.js"></script>
+		<script src="javascripts/vendor/underscore.js"></script>
+		<script src="javascripts/vendor/backbone.js"></script>
+		<script src="javascripts/vendor/popbox.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', '{{tpConfig.gaToken}}', '{{tpConfig.gaDomain}}');
+		  ga('send', 'pageview');
+
+		</script>
 		
 		<script>
             $(document).foundation();
         </script>
-		
-		<!-- <script src="javascripts/foundation.app.js"></script> -->
-		
-		<script data-main="javascripts/main.js" src="javascripts/require.js"></script>
 		
 		{{{block "scripts"}}}
 	</body>

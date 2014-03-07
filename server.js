@@ -1,6 +1,7 @@
 /**
  * Module dependencies.
  */
+require('newrelic')
 
 var express = require('express'),
     hbs = require('hbs'),
@@ -23,7 +24,7 @@ app.configure(function () {
     app.set('view engine', 'html');
     app.engine('html', require('hbs').__express);
     
-    app.use(express.favicon());
+    app.use(express.favicon(__dirname + '/public/favicon.ico'));
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use( express.cookieParser());

@@ -1,37 +1,52 @@
 {{#extend "stylesheets"}}
 {{/extend}}
+
+<div class='grid-bg'>
+    
+</div>
 <aside id="sidebar">
     <div id="logo"></div>
-    <ul id="toolbar">
-        <li id="add-btn">
-            <a class="open" href="#">Add</a>
-            <div class='collapse'>
-                <div class='box'>
-                    <div class='arrow'></div>
-                    <div class='arrow-border'></div>
-                    <form id="board-form" class="popbox-content">
-                        <div class="input">
-                            <input type="text" name="cm-name" id="board-name" placeholder="Give your board a name" />
-                        </div>
-                        <input type="submit" value="Hit it!" class="secondary button" />
-                        <a href="#" class="close">Cancel</a>
-                    </form>
-                </div>
+    <div id="add-btn">
+        <img src="images/add_icon.png">
+        <a class="open" href="#">Add board</a>
+        <div class='collapse'>
+            <div class='box'>
+                <div class='arrow'></div>
+                <div class='arrow-border'></div>
+                <form id="board-form" class="popbox-content">
+                    <div class="input">
+                        <input type="text" name="cm-name" id="board-name" placeholder="Give your board a name" />
+                    </div>
+                    <input type="submit" value="Hit it!" class="secondary button" />
+                    <a href="#" class="close">Cancel</a>
+                </form>
             </div>
-        </li>
-        <li id="reset-btn">
-            <a href="/reset">Reset</a>
-        </li>
-    </ul>
+        </div>
+    </div>
     <nav id="boards-nav">
         <ul id="boards-list"></ul>
     </nav>
 </aside>
-<div id="paper-fold"></div>
-<div id="right-toolbar">
+<div id="logo-small">
+    <img src="images/envelope_small.png">
+    <br>
+    <a data-reveal-id="info-modal" data-reveal>About</a>
+    <span>/</span>
+    <a data-reveal-id="credits-modal" data-reveal>Credits</a>
+    <span>/</span>
+    <a href="http://twitter.com/maheshj567" target="_blank">Contact</a>
+</div>
+<div id="toolbar-left"></div>
+<div id="toolbar-right"></div>
+<div id="toolbar">
+    <div id="top-cover"></div>
+    <div class='progress-bar'></div>
     <p id="selected-board"></p>
+</div>
+<div id="cards"></div>
+<div id="right-toolbar">
     <div id="add-card-btn">
-        <a class="open" href="#">Add Card</a>
+        <a class="open right-toolbar-icon" href="#"></a>
         <div class='collapse'>
             <div class='box'>
                 <div class='arrow'></div>
@@ -47,7 +62,26 @@
         </div>
     </div>
 </div>
-<div id="cards"></div>
 
+<div id="info-modal" class="reveal-modal tiny" data-reveal>
+    <h2>What is Vayu? You ask..</h2>
+    <p>It's a very simple todo's app to help you get things done.</p>
+</div>
+<div id="credits-modal" class="reveal-modal tiny" data-reveal>
+    <h2>Credits to...</h2>
+    <ul>
+        <li><a href='http://365psd.com/day/3-269/' target='_blank'>Login using Facebook button</a> - used on the home page</li>
+        <li><a href='http://thenounproject.com/term/question/2036/' target='_blank'>Question icon</a> - used on the home page</li>
+        <li><a href='http://thenounproject.com/term/tree/31795/' target='_blank'>Tree icon</a> - used in the app's logo</li>
+    </ul>
+</div>
 {{#extend "scripts"}}
+    <script data-main="javascripts/main.js" src="javascripts/vendor/require.js"></script>
+    <script type="text/javascript">
+        requirejs.config({
+            paths: {
+                "text": "vendor/text"
+            }
+    });
+    </script>
 {{/extend}}

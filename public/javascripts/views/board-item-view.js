@@ -15,7 +15,7 @@ define(["text!templates/board-template.html",
 
         updateCurrentBoard: function () {
             if ($(this.$el).hasClass("selected")) {
-                window.dodo_app.set("selectedboard", this.model);
+                window.vayu_app.set("selectedboard", this.model);
                 $("#selected-board").html(this.model.get("name"));
 
                 var cardids = this.model.get("cards");

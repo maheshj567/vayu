@@ -9,14 +9,20 @@
    Shared Styles
 ----------------------------------------- */
 
+html
+{
+	height: 100%;
+}
+
 body
 {
-	background-image: url('../images/noisy_grid.png');
+	background-image: url('../images/blue_bg.png');
 	background-attachment: fixed;
-	color: #646464;
+	color: #606060;
 	font-size: 24px;
 	overflow-x: hidden;
 	min-width: 1024px;
+	height: 100%;
 }
 
 li
@@ -43,18 +49,30 @@ input[type="text"]
 
 #sidebar
 {
-	display: inline-block;
-	width: 300px;
-	background-image: url('../images/sidebarbg.png');
+	width: 255px;
 	background-repeat: repeat-y;
 	position: fixed;
-	height: 100%;
-	z-index: 10000;
+	z-index: 1000;
+}
+
+#logo-small
+{
+	position: fixed;
+	bottom: 10px;
+	padding-left: 250px;
+	color: #FFF;
+	font-size: 14px;
+	text-align: center;
+}
+
+#logo-small a
+{
+	color: #FFF;
 }
 
 #logo
 {
-	display: block;
+	display: none;
 	width: 300px;
 	height: 85px;
 	background-image: url('../images/logo.png');
@@ -62,46 +80,36 @@ input[type="text"]
 	background-position: center;
 }
 
-#toolbar
-{
-	display: block;
-	width: 300px;
-	height: 76px;
-	background-image: url('../images/toolbarbg.png');
-	background-repeat: no-repeat;
-	font-family: 'Lato', sans-serif;
-	margin-top: -11px;
-    margin-left: 0px;
-}
-
-#toolbar li
-{
-	font-size: 24px;
-	font-weight: 300;
-	display: inline-block;
-	margin: 15px 15px 0px 30px; 
-}
-
-#toolbar a
-{
-	color: #646464;
-}
-
-#toolbar a:hover
-{
-	color: #666666;
-}
-
 #add-btn
 {
-	background-image: url('../images/add_icon.png');
 	background-repeat: no-repeat;
-	background-position: 0px 8px;
-	padding-left: 25px;	
+	background-position: 0px 7px;
+	padding-left: 25px;
+	padding-bottom: 20px;
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	margin: 20px 0px;
+	background: url('../images/dashed_sep.png') repeat-x bottom;
+}
+
+#add-btn img
+{
+	margin-top: -3px;
+}
+
+#add-btn a
+{
+	color: #FFF;
+}
+
+#add-btn .box
+{
+	left: -20px !important;
 }
 
 #reset-btn
 {
+	display: none !important;
 	background-image: url('../images/refresh_icon.png');
 	background-repeat: no-repeat;
 	background-position: 0px 8px;
@@ -110,18 +118,19 @@ input[type="text"]
 
 #boards-list
 {
-    margin-left: 0px;
+    margin-left: -5px;
 }
 
 #boards-list li
 {
 	font-family: 'Anonymous Pro', sans-serif;
-	padding: 0px 0px 0px 30px;
+	padding: 0px 0px 0px 24px;
+	margin-bottom: 6px;
 }
 
 #boards-list a
 {
-	font-size: 30px;
+	font-size: 20px;
 	color: #FCFCFC;
 	display: block;
 	text-overflow: ellipsis;
@@ -147,63 +156,139 @@ input[type="text"]
 	background-repeat: no-repeat;
 }
 
-#paper-fold
+.grid-bg
 {
-	background-image: url('../images/paper_fold.png');
-	background-repeat: no-repeat;
-	display: block;
-	width: 122px;
-	height: 133px;
+	background-image: url('../images/noisy_grid.png');
+	height: 100%;
+	margin-top: 50px;
+	margin-left: 270px;
+	overflow: visible;
 	position: fixed;
-	left: 330px;
-	top: 18px;
-	z-index: 1;
-	visibility: hidden;
+	z-index: 2;
 }
 
-#right-toolbar
+.container-shadow
+{
+	box-shadow: 0px 0px 14px 4px rgba(0,0,0,0.15);
+}
+
+#toolbar-left
+{
+	background-image: url('../images/toolbar_left.png');
+	background-repeat: no-repeat;
+	display: block;
+	width: 36px;
+	height: 82px;
+	position: fixed;
+	left: 247px;
+	top: 26px;
+	z-index: 1;
+}
+
+#toolbar-right
+{
+	background-image: url('../images/toolbar_right.png');
+	background-repeat: no-repeat;
+	display: block;
+	width: 36px;
+	height: 82px;
+	position: fixed;
+	right: 47px;
+	top: 26px;
+	z-index: 1;
+}
+
+#top-cover
+{
+	position: absolute;
+	width: 100%;
+	height: 24px;
+	top: -14px;
+	background-image: url('../images/blue_bg.png');
+	background-repeat: repeat-x;
+}
+
+#toolbar
 {
 	background-image: url('../images/right_toolbar_bg.png');
 	background-repeat: repeat-x;
 	display: block;
-	height: 62px;
+	height: 76px;
 	position: fixed;
-	left: 452px;
-	top: 18px;
-	z-index: 1;
-	visibility: hidden;
+	left: 255px;
+	top: 14px;
+	z-index: 3;
 }
 
-#right-toolbar p
+.progress-bar
 {
-	display: inline-block;
-	padding: 8px 0px 0px 0px;
+	background-color: #e45858;
+	width: 100%;
+	position: absolute;
+	height: 4px;
+	display: block;
+	top: 8px;
+}
+
+#selected-board
+{
 	font-family: 'Anonymous Pro', sans-serif;
-	font-size: 30px;
+	font-size: 20px;
+	font-weight: bold;
+	position: absolute;
+	right: 20px;
+	top: 23px;
+}
+
+#right-toolbar
+{
+	position: fixed;
+	right: 0px;
+	height: 100%;
+	width: 70px;
+	top: 110px;
+	text-align: center;
+	z-index: 100;
+}
+
+.right-toolbar-icon
+{
+	width: 36px;
+	height: 36px;
+	display: inline-block;
 }
 
 #add-card-btn
 {
-	display: inline-block;
-	float: right;
-	margin: 20px 20px 0px 0px;
+	display: none;	
 }
 
 #add-card-btn .open
 {
-	background-image: url('../images/add_icon.png');
+	background-image: url('../images/add_card_btn.png');
 	background-repeat: no-repeat;
-	background-position: 0px 8px;
-	color: #646464;
-	font-family: 'Lato', sans-serif;
-	font-size: 24px;
-	font-weight: 300;
-	padding: 3px 0px 0px 25px;	
+	display: inline-block;
+}
+
+#add-card-btn .arrow, #add-card-btn .arrow-border
+{
+	margin-left: -20px;
+}
+
+#add-card-btn .box
+{
+	margin-top: -4px;
+	margin-left: 23px;
+}
+
+#add-card-btn input[type='submit']
+{
+	margin-left: -85px;
 }
 
 #card-form a
 {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #646464;
 	font-weight: 300;
 	margin-left: 10px;
@@ -213,10 +298,9 @@ input[type="text"]
 {
 	display: inline-block;
 	position: absolute;
-	padding: 0px 0px 0px 400px;
 	width: 99%;
-	left: 0px;
-	top: 150px;
+	left: 300px;
+	top: 110px;
 	
 	-webkit-column-count: 4;
 	-webkit-column-gap: 20px;
@@ -227,6 +311,8 @@ input[type="text"]
 	column-count: 4;
 	column-gap: 20px;
 	column-fill: auto;
+
+	z-index: 2;
 }
 
 .card
@@ -239,6 +325,7 @@ input[type="text"]
 	-moz-box-shadow: 0px 1px 5px #CCCCCC;
 	-webkit-box-shadow: 0px 1px 5px #CCCCCC;
 	margin-bottom: 50px;
+	position: relative;
 	
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
@@ -247,10 +334,10 @@ input[type="text"]
 
 .card-title
 {
-	font-family: Dosis, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #FCFCFC;
-	padding: 10px 10px 0px 10px;
-	font-size: 30px;
+	padding: 15px 10px 0px 10px;
+	font-size: 18px;
 	text-align: center;
 	width: 100%;
 	border-top-left-radius: 5px;
@@ -268,38 +355,40 @@ input[type="text"]
 	position: relative;
 }
 
-.dodo-list
+.vtodo-list
 {
     margin-left: 0px;
+    margin-bottom: 0px;
 }
 
-.dodo-list li
+.vtodo-list li
 {
-	min-height: 50px;
 	background-image: url('../images/hor_sep.png');
 	background-repeat: repeat-x;
 	background-position: bottom;
-	margin: 0px 3px 0px 3px;
+	margin: 0px 1px 0px 1px;
 }
 
-.dodo-list li:last-of-type
+.vtodo-list li:last-of-type
 {
 	background: none;
 }
 
-.dodo-list a:hover
+.vtodo-list a:hover
 {
 	color: #333333;
 }
 
-.dodo
+.vtodo
 {
     position: relative;
 }
 
-.dodo a[contenteditable]
+.vtodo-label[contenteditable]
 {
     cursor: text;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .vtodo-label[contenteditable]:hover, .vtodo-label[contenteditable]:focus {
@@ -310,20 +399,20 @@ input[type="text"]
 .vtodo-label
 {
     width: 90%;
-    font-family: Lato, sans-serif;
-	font-size: 24px;
-	color: #646464;
+    font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	color: #606060;
 	display: block;
-	padding: 10px 0px 0px 10px;
+	padding: 10px 0px 10px 10px;
 	overflow: hidden;
 }
 
-.done-dodo .vtodo-label
+.done-vtodo .vtodo-label
 {
 	background-image: url('../images/tick.png');
 	background-repeat: no-repeat;
 	background-position: left bottom;
-	padding-left: 35px;
+	padding-left: 36px;
 	color: #888888;
 	text-decoration: line-through;
 	overflow: hidden;
@@ -344,14 +433,14 @@ input[type="text"]
     right: 0px;
 }
 
-.new-dodo
+.new-vtodo
 {
 	text-align: center;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 300 !important;
 }
 
-.edit-menu
+.edit-menu, .edit-card-menu
 {
 	background-image: url('../images/edit_bg.png');
     background-repeat: no-repeat;
@@ -385,6 +474,21 @@ input[type="text"]
     padding: 10px;
     top: 10px;
     left: 40px;
+}
+
+.content-input
+{
+	position: absolute;
+	z-index: -1;
+	color: #FFF !important;
+	border: none !important;
+	background: none !important;
+}
+
+.card-name-input
+{
+	height: 50px !important;
+	top: 0px;
 }
 
 /* iPads (portrait and landscape) ----------- */

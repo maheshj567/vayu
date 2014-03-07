@@ -1,6 +1,6 @@
 define(["views/vtodo-item-view"], function(VtodoItemView)
 {
-	var VTodosView = Backbone.View.extend({
+	var VtodosView = Backbone.View.extend({
 
 		cardId : "-",
 
@@ -50,7 +50,7 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 				this.off("change");
 			});
 			var view = this.renderVtodoItem(newvtodo);
-            $(view.$el).addClass("new-dodo");
+            $(view.$el).addClass("new-vtodo");
             $(view.$el).addClass("gen_" + Math.round(Math.random()*10000));
 			$(view.$el).find(".vtodo-label").attr("contenteditable", true);
 
@@ -60,15 +60,15 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 		},
 
 		removeNewVtodoHolder : function() {
-			$(this.$el).find(".new-dodo").remove();
+			$(this.$el).find(".new-vtodo").remove();
 		},/*
 
 		editVtodo : function() {
 			
 		},*/
 
-		createVtodo : function(dodotitle) {
-			var vtodo = this.collection.createVtodo(dodotitle, window.dodo_app.get("selectedboard").get("lid"), this.cardId);
+		createVtodo : function(vtodotitle) {
+			var vtodo = this.collection.createVtodo(vtodotitle, window.vayu_app.get("selectedboard").get("lid"), this.cardId);
 			this.collection.add(vtodo);
 
 			/*var root = this;
@@ -78,5 +78,5 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 		}
 	});
 	
-	return VTodosView;
+	return VtodosView;
 });
