@@ -1,6 +1,6 @@
 define(["models/vtodo-item"], function(VtodoItem)
 {
-	//dodo collection
+	//vtodo collection
 	var Vtodos = Backbone.Collection.extend({
 		model : VtodoItem,
 

@@ -25,8 +25,7 @@ define(["views/board-item-view",
 
 			if (this.collection.length != 0) {
 				//TODO clean this up
-				$("#right-toolbar").css("visibility", "visible");
-				$("#paper-fold").css("visibility", "visible");
+				$("#add-card-btn").css("display", "inherit");
 			}
 
 			_.each(boards_coll.models, function(item) {
@@ -36,7 +35,7 @@ define(["views/board-item-view",
 			//check if first load and if yes, select the first board
 			//TODO: remember last selected board and select that
 			if(boards.length == 0){
-				// window.all_dodos = storageManager.getDodos();
+				// window.all_vtodos = storageManager.getVtodos();
 
 				window.cards_coll = new Cards();
 				window.cards_view = new CardsView();
@@ -47,15 +46,13 @@ define(["views/board-item-view",
 
 		addBoard : function() {
 			this.renderBoardItem(arguments[0], true);
-
-			$("#right-toolbar").css("visibility", "visible");
-			$("#paper-fold").css("visibility", "visible");
+			$("#add-card-btn").css("display", "inherit");
 		},
 
 		removeBoard : function() {
+			//TODO: check this when remove board functionality is developed
 			if (this.collection.length == 0) {
-				$("#right-toolbar").css("visibility", "hidden");
-				$("#paper-fold").css("visibility", "hidden");
+				$("#add-card-btn").css("display", "none");
 			}
 		},
 
@@ -70,9 +67,15 @@ define(["views/board-item-view",
 		},
 
 		selectBoard : function(e) {
-			var ci = window.dodo_app.get("selectedboard");
+			var ci = window.vayu_app.get("selectedboard");
 			if (ci) {
-				var currentitem = $("#board_" + window.dodo_app.get("selectedboard").get("lid"));
+				//not selecting if board is already selected
+				//TODO: abstract out
+				if('board_' + window.vayu_app.get("selectedboard").get("lid") == $(e.currentTarget).attr('id'))
+				{
+					return;
+				}
+				var currentitem = $("#board_" + window.vayu_app.get("selectedboard").get("lid"));
 				$(currentitem).removeClass("selected");
 			}
 
@@ -92,7 +95,7 @@ define(["views/board-item-view",
 		},
 
 		addCardToCurrentBoard : function(cid) {
-			var bid = window.dodo_app.get("selectedboard").get("lid");
+			var bid = window.vayu_app.get("selectedboard").get("lid");
 
 			var boardmodel = _.find(this.collection.models, function(item) {
 				return item.get("lid") == bid;

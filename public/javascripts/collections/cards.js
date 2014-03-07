@@ -16,7 +16,7 @@ define(["models/card-item"], function(CardItem)
                 lid : cid,
                 bid : boardId,
 				name : cardname,
-                dodos : []
+                vtodos : []
 			});
 
 			card.save({}, {success: function(model, response, options)
