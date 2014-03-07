@@ -69,6 +69,8 @@ define(["views/board-item-view",
 		selectBoard : function(e) {
 			var ci = window.vayu_app.get("selectedboard");
 			if (ci) {
+				//not selecting if board is already selected
+				//TODO: abstract out
 				if('board_' + window.vayu_app.get("selectedboard").get("lid") == $(e.currentTarget).attr('id'))
 				{
 					return;
