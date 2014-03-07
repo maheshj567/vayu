@@ -69,6 +69,10 @@ define(["views/board-item-view",
 		selectBoard : function(e) {
 			var ci = window.vayu_app.get("selectedboard");
 			if (ci) {
+				if('board_' + window.vayu_app.get("selectedboard").get("lid") == $(e.currentTarget).attr('id'))
+				{
+					return;
+				}
 				var currentitem = $("#board_" + window.vayu_app.get("selectedboard").get("lid"));
 				$(currentitem).removeClass("selected");
 			}
