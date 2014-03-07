@@ -36,7 +36,6 @@ Works properly in Chrome only
 
 ## Roadmap
 
-* New design
 * Search
 * User timezone support
 * Attach deadlines to todos
