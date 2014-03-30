@@ -384,18 +384,6 @@ input[type="text"]
     font-family: 'Open Sans', sans-serif;
 }
 
-.vtodo-label[contenteditable]
-{
-    cursor: text;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.vtodo-label[contenteditable]:hover, .vtodo-label[contenteditable]:focus {
-    background: #FFFFD3;
-    color: #333333;
-}
-
 .vtodo-label
 {
 	font-size: 16px;
@@ -506,6 +494,11 @@ input[type="text"]
 {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
+}
+
+.vtodo-title-input:hover, .vtodo-title-input:focus {
+    background-color: #FFFFD3 !important;
+    color: #333333;
 }
 
 /* iPads (portrait and landscape) ----------- */
