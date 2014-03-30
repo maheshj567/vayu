@@ -52,10 +52,9 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 			var view = this.renderVtodoItem(newvtodo);
             $(view.$el).addClass("new-vtodo");
             $(view.$el).addClass("gen_" + Math.round(Math.random()*10000));
-			$(view.$el).find(".vtodo-label").attr("contenteditable", true);
 
 			if (focus) {
-				$(view.$el).find(".vtodo-label").click();
+				$(view.$el).find(".vtodo-title-input").click();
 			}
 		},
 
@@ -70,11 +69,6 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 		createVtodo : function(vtodotitle) {
 			var vtodo = this.collection.createVtodo(vtodotitle, window.vayu_app.get("selectedboard").get("lid"), this.cardId);
 			this.collection.add(vtodo);
-
-			/*var root = this;
-			vtodo.on("change", function(){
-				root.editVtodo(this);
-			});*/
 		}
 	});
 	
