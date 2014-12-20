@@ -499,6 +499,7 @@ input[type="text"]
 	display: none;
 	resize: none;
 	height: 45px;
+	min-height: 45px;
 }
 
 .vtodo-title-input:hover, .vtodo-title-input:focus {
