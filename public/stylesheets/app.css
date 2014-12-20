@@ -33,7 +33,7 @@ li
 input[type="text"]
 {
 	height: 40px;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .button
@@ -366,7 +366,6 @@ input[type="text"]
 	background-image: url('../images/hor_sep.png');
 	background-repeat: repeat-x;
 	background-position: bottom;
-	margin: 0px 1px 0px 1px;
 }
 
 .vtodo-list li:last-of-type
@@ -382,24 +381,11 @@ input[type="text"]
 .vtodo
 {
     position: relative;
-}
-
-.vtodo-label[contenteditable]
-{
-    cursor: text;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.vtodo-label[contenteditable]:hover, .vtodo-label[contenteditable]:focus {
-    background: #FFFFD3;
-    color: #333333;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .vtodo-label
 {
-    width: 90%;
-    font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	color: #606060;
 	display: block;
@@ -438,6 +424,16 @@ input[type="text"]
 	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300 !important;
+}
+
+.new-vtodo .vtodo-label
+{
+	visibility: hidden;
+}
+
+.new-vtodo .vtodo-title-input
+{
+	z-index: auto;
 }
 
 .edit-menu, .edit-card-menu
@@ -479,16 +475,35 @@ input[type="text"]
 .content-input
 {
 	position: absolute;
+	top: 0px;
 	z-index: -1;
-	color: #FFF !important;
 	border: none !important;
+	box-shadow: none !important;
+	margin: 0px !important;
+	font-size: 16px !important;
 	background: none !important;
 }
 
 .card-name-input
 {
+	color: #FFF !important;
 	height: 50px !important;
-	top: 0px;
+}
+
+.vtodo-title-input
+{
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	color: #888888;
+	position: relative;
+	display: none;
+	resize: none;
+	height: 45px;
+}
+
+.vtodo-title-input:hover, .vtodo-title-input:focus {
+    background-color: #FFFFD3 !important;
+    color: #333333;
 }
 
 /* iPads (portrait and landscape) ----------- */

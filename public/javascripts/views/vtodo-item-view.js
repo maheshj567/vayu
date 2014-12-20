@@ -6,11 +6,12 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 		template : _.template(VtodoTemplate),
 
 		events : {
-            "mouseover" : "handleMouseOver",
-            "mouseout" : "handleMouseOut",
-			"keydown .vtodo-label" : "handleVtodoKeyDown",
-			"click .vtodo-label" : "handleAFocusIn",
-			"focusout a" : "handleAFocusOut",
+            "mouseenter .vtodo-label" : "handleMouseOver",
+            "mouseleave" : "handleMouseOut",
+			"keydown .vtodo-title-input" : "handleVtodoKeyDown",
+			"click .vtodo-title-input" : "handleAFocusIn",
+			"click .vtodo-label": "handleClick",
+			"focusout .vtodo-title-input" : "handleAFocusOut",
             "click .vtodo-more-btn" : "handleMore",
             "click .edit-btn" : "handleEdit",
             "click .delete-btn" : "handleDelete"
@@ -34,54 +35,47 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 		},
         
         handleMouseOver : function(e) {
-            if(!$(this.$el).hasClass("new-vtodo"))
+            if(!this.$el.hasClass("new-vtodo"))
             {
                 $(this.$el).find(".edit-menu").show();
             }
         },
         
         handleMouseOut : function(e) {
-            $(this.$el).find(".edit-menu").hide();
+            this.hideEditMenu();
         },
 
 		handleAFocusIn : function(e) {
 			//TODO clean this up with a static const declaration of the "New todo" string
-			if ($(this.$el).hasClass("new-vtodo")) {
-                if(e.currentTarget.innerHTML === "&lt;!-- New todo --&gt;")
-                {
-                    e.currentTarget.innerHTML = "";
-                    $(e.currentTarget).focus();
-                }
-			}else{
-				if($(".vtodo-label", this.$el).attr("contenteditable"))
-				{
-					return false;
-				}
-                $(this.$el).toggleClass("done-vtodo");
-
-                var done = !this.model.get("done");
-
-                this.model.save({'done': done}, {success: function(model, response, options){
-					console.log("success saving vtodo changes...");
-				}, error: function(model, xhr, options){
-					console.log("error saving vtodo changes...");
-				}});
+			if($(e.currentTarget).val() == "// New todo")
+            {
+                $(e.currentTarget).val("");
+                $(e.currentTarget).focus();
             }
+			return false;
+		},
+
+		handleClick : function(e) {
+			$(this.$el).toggleClass("done-vtodo");
+
+            var done = !this.model.get("done");
+
+            this.model.save({'done': done}, {success: function(model, response, options){
+				console.log("success saving vtodo changes...");
+			}, error: function(model, xhr, options){
+				console.log("error saving vtodo changes...");
+			}});
 			return false;
 		},
 
 		handleAFocusOut : function(e) {
 			if ($(this.$el).hasClass("new-vtodo")) {
-				if (e.currentTarget.innerHTML === "") {
-					e.currentTarget.innerHTML = "&lt;!-- New todo --&gt;";
+				if ($(e.currentTarget).val() === "") {
+					$(e.currentTarget).val("// New todo");
 				}
 			}else{
-				if($(".vtodo-label", this.$el).is("[contenteditable]"))
-				{
-					document.execCommand('undo');
-					e.currentTarget.blur();
-					$(e.currentTarget).removeAttr("contenteditable");
-				}
+				document.execCommand('undo');
+				this.hideEditForm();
 			}
 		},
         
@@ -90,8 +84,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
         },
 
         handleEdit : function(e) {
-        	$(".vtodo-label", this.$el).attr("contenteditable", true);
-        	$(".vtodo-label", this.$el).focus();
+        	this.showEditForm();
             return false;
         },
 
@@ -120,7 +113,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 				document.execCommand('undo');
 				e.currentTarget.blur();
 			} else if (ent) {
-				var title = $(e.currentTarget).html();
+				var title = $(e.currentTarget).val();
 				if(title.trim() === '')
 				{
 					event.preventDefault();
@@ -143,12 +136,15 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 				// restore state
 				document.execCommand('undo');
 				e.currentTarget.blur();
+				this.hideEditForm();
 			} else if (ent) {
 
-				$(e.currentTarget).removeAttr("contenteditable");
+				// $(e.currentTarget).removeAttr("contenteditable");
 
-				var title = $(e.currentTarget).html();
+				var title = $(e.currentTarget).val();
 				this.model.set("title", title);
+
+				$('.vtodo-label', this.$el).html(title);
                 
                 // document.execCommand('undo');
 				e.currentTarget.blur();
@@ -160,7 +156,34 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 				}});
                 
                 //required, if not, browser changes content to wrap it in a div
-				event.preventDefault();
+				// event.preventDefault();
+			}
+		},
+
+		hideEditMenu: function() {
+			$(this.$el).find(".edit-menu").hide();
+		},
+
+		showEditForm: function(dontFocus) {
+			$(".vtodo-title-input", this.$el).val(this.model.get("title"));
+			$(".vtodo-title-input", this.$el).css("z-index", 'auto');
+			$(".vtodo-title-input", this.$el).autosize().show().trigger('autosize.resize');
+			$(".vtodo-label", this.$el).hide();
+			if(!dontFocus) {
+				$(".vtodo-title-input", this.$el).focus();
+			}
+		},
+
+		hideEditForm: function() {
+			$(".vtodo-title-input", this.$el).hide();
+			$(".vtodo-title-input", this.$el).trigger('autosize.destroy');
+			$(".vtodo-label", this.$el).show();
+			$(".vtodo-title-input", this.$el).css("z-index", '-1');
+		},
+
+		setupPostRender: function() {
+			if(this.$el.hasClass("new-vtodo")) {
+				this.showEditForm(true);
 			}
 		}
 	});

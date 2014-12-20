@@ -34,7 +34,7 @@ define(["models/vtodo-item"], function(VtodoItem)
 		{
 			var vtodo = new VtodoItem({
 				lid : "new",
-				title : "&lt;!-- New todo --&gt;"
+				title : "// New todo"
 			});
 			return vtodo;
 		}

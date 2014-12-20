@@ -9,6 +9,7 @@ define(["collections/vtodos",
         
         events : {
 			"keydown .card-name-input" : "handleCardNameEdit",
+			"focusout .card-name-input" : "handleCardNameFocusOut",
 			"mouseenter .card-title" : "handleMouseOver",
 			"mouseleave .card-title" : "handleMouseOut",
 			"mouseenter .edit-card-menu" : "handleMouseOver",
@@ -143,6 +144,14 @@ define(["collections/vtodos",
                 e.currentTarget.blur();
                 event.preventDefault();
             }
+		},
+
+		handleCardNameFocusOut : function(e) {
+			$(".card-name-input", this.$el).val($(".card-name-input", this.$el).prop('defaultValue'));
+
+			this.hideEditForm();
+            e.currentTarget.blur();
+            event.preventDefault();
 		},
 
 		showEditForm: function() {
