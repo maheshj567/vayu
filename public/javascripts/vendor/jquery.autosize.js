@@ -191,7 +191,8 @@
 					}
 				}
 
-				height += boxOffset;
+				// MJ did this - to reduce size of the textarea
+				// height += boxOffset;
 
 				if (Math.abs(originalHeight - height) > 1/100) {
 					ta.style.height = height + 'px';
