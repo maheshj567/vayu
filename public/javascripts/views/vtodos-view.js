@@ -39,6 +39,7 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 			});
 			var view = vtodoItemView.render();
 			this.$el.append(view.el);
+			view.setupPostRender();
 			return view;
 		},
 
@@ -52,6 +53,8 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 			var view = this.renderVtodoItem(newvtodo);
             $(view.$el).addClass("new-vtodo");
             $(view.$el).addClass("gen_" + Math.round(Math.random()*10000));
+
+            view.setupPostRender();
 
 			if (focus) {
 				$(view.$el).find(".vtodo-title-input").click();

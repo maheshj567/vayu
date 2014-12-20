@@ -494,7 +494,11 @@ input[type="text"]
 {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-	color: #060606;
+	color: #888888;
+	position: relative;
+	display: none;
+	resize: none;
+	height: 45px;
 }
 
 .vtodo-title-input:hover, .vtodo-title-input:focus {

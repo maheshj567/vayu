@@ -47,7 +47,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 
 		handleAFocusIn : function(e) {
 			//TODO clean this up with a static const declaration of the "New todo" string
-			if($(e.currentTarget).val() == "<!-- New todo -->")
+			if($(e.currentTarget).val() == "// New todo")
             {
                 $(e.currentTarget).val("");
                 $(e.currentTarget).focus();
@@ -71,7 +71,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 		handleAFocusOut : function(e) {
 			if ($(this.$el).hasClass("new-vtodo")) {
 				if ($(e.currentTarget).val() === "") {
-					$(e.currentTarget).val("<!-- New todo -->");
+					$(e.currentTarget).val("// New todo");
 				}
 			}else{
 				document.execCommand('undo');
@@ -141,8 +141,10 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 
 				// $(e.currentTarget).removeAttr("contenteditable");
 
-				var title = $(e.currentTarget).html();
+				var title = $(e.currentTarget).val();
 				this.model.set("title", title);
+
+				$('.vtodo-label', this.$el).html(title);
                 
                 // document.execCommand('undo');
 				e.currentTarget.blur();
@@ -154,7 +156,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 				}});
                 
                 //required, if not, browser changes content to wrap it in a div
-				event.preventDefault();
+				// event.preventDefault();
 			}
 		},
 
@@ -162,13 +164,27 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 			$(this.$el).find(".edit-menu").hide();
 		},
 
-		showEditForm: function() {
+		showEditForm: function(dontFocus) {
+			$(".vtodo-title-input", this.$el).val(this.model.get("title"));
 			$(".vtodo-title-input", this.$el).css("z-index", 'auto');
-        	$(".vtodo-title-input", this.$el).focus();
+			$(".vtodo-title-input", this.$el).autosize().show().trigger('autosize.resize');
+			$(".vtodo-label", this.$el).hide();
+			if(!dontFocus) {
+				$(".vtodo-title-input", this.$el).focus();
+			}
 		},
 
 		hideEditForm: function() {
+			$(".vtodo-title-input", this.$el).hide();
+			$(".vtodo-title-input", this.$el).trigger('autosize.destroy');
+			$(".vtodo-label", this.$el).show();
 			$(".vtodo-title-input", this.$el).css("z-index", '-1');
+		},
+
+		setupPostRender: function() {
+			if(this.$el.hasClass("new-vtodo")) {
+				this.showEditForm(true);
+			}
 		}
 	});
 	
