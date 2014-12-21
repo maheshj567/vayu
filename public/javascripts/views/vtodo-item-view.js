@@ -161,7 +161,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 		},
 
 		hideEditMenu: function() {
-			$(this.$el).find(".edit-menu").hide();
+			$(".edit-menu", this.$el).hide();
 		},
 
 		showEditForm: function(dontFocus) {
@@ -172,6 +172,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 			if(!dontFocus) {
 				$(".vtodo-title-input", this.$el).focus();
 			}
+			this.hideEditMenu();
 		},
 
 		hideEditForm: function() {
