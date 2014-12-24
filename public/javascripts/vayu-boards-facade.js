@@ -1,3 +1,4 @@
+// REF: rename this to vayu-facede.js
 define(["vayu-prereqs",
 		"models/vayu-boards-app",
 		"collections/boards",
@@ -133,11 +134,13 @@ define(["vayu-prereqs",
 			$("body").scrollTop(0);
 		});
 		
+		// ref: init storagemanager with required models, collections, etc
 		window.storageManager = storageManager;
 		window.refreshDimensions = refreshDimensions;
 
 		refreshDimensions();
 
+		// ref: change this to "add-board-btn"
 		$('#add-btn').popbox();
 		$('#add-card-btn').popbox({
 			'position' : 'br'
@@ -165,10 +168,11 @@ define(["vayu-prereqs",
 		/*$(window).unload(function() {
 			storageManager.saveAll();
 		});*/
-		
+
+		// ref: rename models to nameModel and collections to nameCollection
 		vayu_app = new VayuApp();
 
-		//TODO: see if we can remove these from window
+		// ref: see if we can remove these from window
 		window.boards_coll = new Boards();
 		window.cards_coll = new Cards();
 		window.vtodos_coll = new Vtodos();
