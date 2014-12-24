@@ -27,6 +27,7 @@ define(["collections/vtodos",
 				$(this.$el).remove();
 			}, this);
 
+			// ref: card should not be concerned with the boards_view
 			if (window.boards_view) {
 				window.boards_view.addCardToCurrentBoard(this.model.get("lid"));
 			}
@@ -56,6 +57,7 @@ define(["collections/vtodos",
         },
 
         handleDelete : function(e) {
+        	// ref: probably not the right place here. Basically the separation between UI logic and business logic is no there!
         	this.model.destroy({success: function(model, response, options){
 				console.log("success deleting card...");
 			}, error: function(model, xhr, options){
@@ -65,6 +67,7 @@ define(["collections/vtodos",
         },
 
 		renderVtodos : function() {
+			// ref: this should be taken care by vtodos-view
 			var vtodoids = this.model.get("vtodos");
 			var tempvtodos = [];
 			var donevtodos = [];
@@ -95,6 +98,7 @@ define(["collections/vtodos",
 		},
 
 		handleVtodoAdded : function() {
+			// ref: should be taken care by vtodos-view
 			var item = arguments[0];
 			var vtodos = this.model.get("vtodos");
 			vtodos.push(item.get("lid"));
@@ -107,6 +111,7 @@ define(["collections/vtodos",
 		},
 
 		handleVtodoRemoved : function(model, collection, options) {
+			// ref: should be taken care by vtodos-view
 			var vtodos = this.model.get("vtodos");
 			vtodos = _.without(vtodos, model.get("lid"));
 
@@ -118,6 +123,7 @@ define(["collections/vtodos",
 		},
         
         handleCardNameEdit : function(e) {
+        	// ref: too much logic. Separate UI logic and business logic
             var esc = event.which == 27;
 			var ent = event.which == 13;
 			if(esc)

@@ -63,12 +63,8 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 
 		removeNewVtodoHolder : function() {
 			$(this.$el).find(".new-vtodo").remove();
-		},/*
-
-		editVtodo : function() {
-			
-		},*/
-
+		},
+		
 		createVtodo : function(vtodotitle) {
 			var vtodo = this.collection.createVtodo(vtodotitle, window.vayu_app.get("selectedboard").get("lid"), this.cardId);
 			this.collection.add(vtodo);
