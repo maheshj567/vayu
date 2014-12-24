@@ -18,12 +18,14 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 		},
 
 		initialize : function() {
+			// ref: redundant...happening at a lot of places
 			this.model.on("destroy", function(){
 				$(this.$el).remove();
 			}, this);
 		},
 
 		render : function() {
+			// ref: rendering logic is also similar in a few places
 			this.$el.html(this.template(this.model.toJSON()));
 			$(this.$el).attr("id", "vtodo_" + this.model.get("lid"));
 
@@ -46,7 +48,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
         },
 
 		handleAFocusIn : function(e) {
-			//TODO clean this up with a static const declaration of the "New todo" string
+			// ref: clean this up with a static const declaration of the "New todo" string
 			if($(e.currentTarget).val() == "// New todo")
             {
                 $(e.currentTarget).val("");
@@ -59,7 +61,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
 			$(this.$el).toggleClass("done-vtodo");
 
             var done = !this.model.get("done");
-
+            // ref: UI and business logic at same place!
             this.model.save({'done': done}, {success: function(model, response, options){
 				console.log("success saving vtodo changes...");
 			}, error: function(model, xhr, options){
@@ -89,6 +91,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
         },
 
         handleDelete : function(e) {
+        	// ref: UI and business logic at same place!
         	this.model.destroy({success: function(model, response, options){
 				console.log("success deleting vtodo...");
 			}, error: function(model, xhr, options){
@@ -149,6 +152,7 @@ define(["text!templates/vtodo-template.html"], function(VtodoTemplate)
                 // document.execCommand('undo');
 				e.currentTarget.blur();
 
+				// ref: UI and business logic at same place!
 				this.model.save({'title': title}, {success: function(model, response, options){
 					console.log("success saving vtodo changes...");
 				}, error: function(model, xhr, options){
