@@ -34,6 +34,9 @@ define(["views/vtodo-item-view"], function(VtodoItemView)
 		},
 
 		renderVtodoItem : function(item) {
+			if(item.get("done") === true) {
+				return;
+			}
 			var vtodoItemView = new VtodoItemView({
 				model : item
 			});
