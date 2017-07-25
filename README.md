@@ -1,4 +1,4 @@
-# Vayu [![Code Climate](https://codeclimate.com/github/maheshj567/vayu.png)](https://codeclimate.com/github/maheshj567/vayu) [![Dependency status](https://gemnasium.com/maheshj567/vayu.png)](https://gemnasium.com/maheshj567/vayu) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/maheshj567/vayu/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+# Vayu
 
 The vision for Vayu is to be THE platform for personal productivity.
 
@@ -28,7 +28,7 @@ Got any ideas? Or just want to say hi? Get in touch [@maheshj567](http://twitter
 5. **Express (Node.js)** for backend
 6. **MongoDB** for storing data
 7. **Redis** for session store
-8. **Openshift by Redhat** for hosting 
+8. **Openshift by Redhat** for hosting
 
 ## Limitations
 
